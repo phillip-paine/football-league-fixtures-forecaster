@@ -229,7 +229,7 @@ def load_training_matches(
 
     rows = _run_match_query(conn, where, params, competitions)
 
-    team_index = team
+    team_index = team_index or build_team_index(conn)
     division_index = division_index or build_division_index(conn)
 
     return _rows_to_dataset(
