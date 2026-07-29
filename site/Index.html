@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Forecast — Projected Tables, Grid &amp; Fixtures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+  :root{
+    --pitch:#16342A;
+    --pitch-light:#1E4636;
+    --paper:#EEF0EA;
+    --paper-dim:#E3E6DD;
+    --ink:#1A1A16;
+    --amber:#C97A1E;
+    --slate:#6B6B63;
+    --teal:#3E6E8E;
+    --teal-light:#8FA9B4;
+    --brick:#8C3A2B;
+    --line:rgba(26,26,22,0.14);
+    --disp: 'Space Grotesk', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --body: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  .sample-banner{
+    background:var(--amber);
+    color:var(--pitch);
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-align:center;
+    padding:6px 8px;
+    text-transform:uppercase;
+  }
+
+  header.scoreboard{
+    background:var(--pitch);
+    color:var(--paper);
+    padding:18px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    position:sticky;
+    top:0;
+    z-index:20;
+    border-bottom:3px solid var(--amber);
+  }
+  .brand{
+    font-family:var(--disp);
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .brand small{
+    font-family:var(--mono);
+    font-weight:400;
+    font-size:0.62rem;
+    color:var(--amber);
+    letter-spacing:0.08em;
+    text-transform:none;
+  }
+  nav.comp-tabs{display:flex; gap:4px;}
+  .tab{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.05em;
+    background:transparent;
+    border:1px solid rgba(238,240,234,0.3);
+    color:var(--paper);
+    padding:7px 14px;
+    cursor:pointer;
+    border-radius:2px;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .tab:hover{border-color:var(--amber);}
+  .tab.active{background:var(--amber); color:var(--pitch); border-color:var(--amber);}
+  .tab:focus-visible{outline:2px solid var(--paper); outline-offset:2px;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 20px 60px;}
+
+  /* ---- headline / teleprinter ---- */
+  section.headline{
+    background:var(--pitch);
+    color:var(--paper);
+    margin:0 0 28px;
+    padding:26px 24px 22px;
+  }
+  .headline-inner{max-width:1080px; margin:0 auto; padding:0 4px;}
+  .headline-eyebrow{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:10px;
+  }
+  .headline-eyebrow::before{content:"▌"; margin-right:6px;}
+  #headline-fixture{
+    font-family:var(--mono);
+    font-size:clamp(1.05rem, 3vw, 1.55rem);
+    font-weight:600;
+    min-height:1.6em;
+    white-space:pre-wrap;
+    line-height:1.5;
+  }
+  .hl-cursor{display:inline-block; width:0.55em; background:var(--amber); animation:blink 1s steps(1) infinite;}
+  @keyframes blink{ 50%{opacity:0;} }
+  #headline-sub{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    color:rgba(238,240,234,0.75);
+    margin-top:8px;
+    min-height:1.4em;
+  }
+
+  h2.section-title{
+    font-family:var(--disp);
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-weight:700;
+    margin:0;
+  }
+  .section-note{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    color:var(--slate);
+    margin:8px 0 16px;
+    letter-spacing:0.02em;
+  }
+
+  /* ---- standings toolbar (title + table/grid toggle) ---- */
+  .standings-toolbar{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:8px 0 0;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--ink);
+  }
+  .view-toggle{display:flex; border:1px solid var(--ink); border-radius:2px; overflow:hidden;}
+  .vtab{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    padding:6px 14px;
+    background:var(--paper);
+    border:none;
+    border-right:1px solid var(--ink);
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .vtab:last-child{border-right:none;}
+  .vtab.active{background:var(--ink); color:var(--paper);}
+  .vtab:hover:not(.active){background:var(--paper-dim);}
+  .vtab:focus-visible{outline:2px solid var(--amber); outline-offset:-2px;}
+
+  /* ---- standings table ---- */
+  .table-scroll{overflow-x:auto; margin-bottom:14px;}
+  table.standings{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.85rem;
+    min-width:720px;
+  }
+  table.standings th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:0.66rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--slate);
+    font-weight:600;
+    padding:8px 10px;
+    border-bottom:1px solid var(--ink);
+    white-space:nowrap;
+  }
+  table.standings td{
+    padding:8px 10px;
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    white-space:nowrap;
+  }
+  table.standings td.team-cell{
+    font-family:var(--body);
+    font-weight:500;
+    white-space:normal;
+  }
+  table.standings tr:hover td{background:var(--paper-dim);}
+  table.standings td.num,
+  table.standings th.num{text-align:right;}
+  .rank-badge{display:inline-block; width:1.6em; color:var(--slate);}
+  tr.cutline-1 td, tr.cutline-2 td{border-bottom:2px solid var(--ink);}
+
+  /* zone colour-coding: an inset left edge + faint row tint, kept quiet on purpose */
+  tr.zone-a{box-shadow:inset 4px 0 0 var(--amber); background:rgba(201,122,30,0.07);}
+  tr.zone-b{box-shadow:inset 4px 0 0 var(--pitch-light); background:rgba(30,70,54,0.06);}
+  tr.zone-c{box-shadow:inset 4px 0 0 var(--teal); background:rgba(62,110,142,0.06);}
+  tr.zone-d{box-shadow:inset 4px 0 0 var(--teal-light); background:rgba(143,169,180,0.06);}
+  tr.zone-releg{box-shadow:inset 4px 0 0 var(--brick); background:rgba(140,58,43,0.06);}
+
+  .zone-legend{
+    display:flex; flex-wrap:wrap; gap:16px;
+    margin:2px 2px 44px;
+    font-family:var(--mono); font-size:0.66rem; color:var(--slate);
+  }
+  .zone-chip{display:inline-flex; align-items:center;}
+  .chip-swatch{display:inline-block; width:10px; height:10px; margin-right:6px; border-radius:1px;}
+  .chip-swatch.zone-a{background:var(--amber);}
+  .chip-swatch.zone-b{background:var(--pitch-light);}
+  .chip-swatch.zone-c{background:var(--teal);}
+  .chip-swatch.zone-d{background:var(--teal-light);}
+  .chip-swatch.zone-releg{background:var(--brick);}
+
+  .range-bar{
+    position:relative;
+    width:110px;
+    height:14px;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    display:inline-block;
+    vertical-align:middle;
+    background-image:linear-gradient(90deg, rgba(26,26,22,0.18) 1px, transparent 1px);
+    background-size:11% 100%;
+  }
+  .range-bar .fill{position:absolute; top:1px; bottom:1px; background:var(--slate); opacity:0.55;}
+  .range-bar .mean-tick{position:absolute; top:-2px; bottom:-2px; width:2px; background:var(--ink);}
+  .range-label{font-size:0.68rem; color:var(--slate); margin-left:6px;}
+
+  .prob-cell{display:flex; align-items:center; gap:6px; justify-content:flex-end;}
+  .prob-num{width:3.2em; text-align:right;}
+  .prob-track{width:46px; height:6px; background:var(--paper-dim); border:1px solid var(--line); position:relative;}
+  .prob-track .fill{position:absolute; top:0; bottom:0; left:0;}
+  .prob-track .fill.title{background:var(--amber);}
+  .prob-track .fill.top4{background:var(--pitch-light);}
+  .prob-track .fill.releg{background:var(--brick);}
+
+  /* ---- results grid ---- */
+  .grid-wrap{
+    overflow:auto;
+    max-height:640px;
+    border:1px solid var(--ink);
+    margin-bottom:10px;
+  }
+  table.grid-table{border-collapse:collapse; font-family:var(--mono); font-size:0.66rem;}
+  table.grid-table th, table.grid-table td{
+    width:36px; height:30px; min-width:36px;
+    text-align:center; padding:0;
+    border:1px solid var(--paper-dim);
+  }
+  table.grid-table th.corner{
+    position:sticky; top:0; left:0; z-index:3;
+    background:var(--pitch); color:var(--paper);
+    font-size:0.6rem;
+  }
+  table.grid-table th.col-head{
+    position:sticky; top:0; z-index:2;
+    background:var(--paper);
+    border-bottom:2px solid var(--ink);
+    font-weight:600;
+    cursor:default;
+  }
+  table.grid-table th.row-head{
+    position:sticky; left:0; z-index:2;
+    background:var(--paper);
+    border-right:2px solid var(--ink);
+    text-align:right; padding-right:6px;
+    font-weight:600;
+    cursor:default;
+  }
+  td.diag{
+    background-image:repeating-linear-gradient(45deg, var(--paper-dim) 0 4px, var(--paper) 4px 8px);
+  }
+  td.cell.played{font-weight:700; color:var(--ink);}
+  td.cell.projected{font-weight:400; font-style:italic; color:var(--slate);}
+  .grid-legend{
+    font-family:var(--mono); font-size:0.66rem; color:var(--slate);
+    margin:0 0 44px;
+    line-height:1.6;
+  }
+  .grid-legend b{color:var(--ink); font-style:normal;}
+
+  /* ---- fixtures ---- */
+  .fixture-list{display:flex; flex-direction:column; gap:1px; background:var(--line); margin-bottom:20px;}
+  .fixture-row{
+    background:var(--paper);
+    padding:14px 14px;
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:14px;
+    align-items:center;
+  }
+  .fx-time{font-family:var(--mono); font-size:0.72rem; color:var(--slate); line-height:1.35;}
+  .fx-time b{display:block; color:var(--ink); font-size:0.78rem;}
+  .fx-teams{font-family:var(--disp); font-weight:600; font-size:0.98rem;}
+  .fx-teams .vs{color:var(--slate); font-weight:400; margin:0 6px; font-family:var(--body); font-size:0.85rem;}
+  .fx-score{font-family:var(--mono); font-weight:700; font-size:1.05rem; text-align:right;}
+  .fx-score span{font-size:0.62rem; font-weight:500; color:var(--slate); display:block; text-transform:uppercase; letter-spacing:0.05em;}
+
+  .wdl-bar{
+    height:16px; display:flex; border:1px solid var(--line); overflow:hidden;
+    background-image:linear-gradient(90deg, rgba(238,240,234,0.55) 1px, transparent 1px);
+    background-size:10% 100%; background-repeat:repeat;
+  }
+  .wdl-bar .seg{height:100%;}
+  .wdl-bar .seg.h{background:var(--pitch);}
+  .wdl-bar .seg.d{background:var(--slate);}
+  .wdl-bar .seg.a{background:var(--amber);}
+  .wdl-labels{display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.62rem; color:var(--slate); margin-top:3px;}
+
+  footer{
+    max-width:1080px; margin:20px auto 0; padding:16px 20px 40px;
+    font-family:var(--mono); font-size:0.68rem; color:var(--slate);
+    border-top:1px solid var(--line);
+  }
+  footer p{margin:4px 0;}
+
+  @media (max-width:640px){
+    .fixture-row{grid-template-columns:1fr; text-align:left;}
+    .fx-score{text-align:left;}
+    .fx-time{display:flex; gap:8px; align-items:baseline;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-banner" id="status-banner" style="display:none;"></div>
+
+<header class="scoreboard">
+    <div class="brand">English Forecast <small>MATCH &amp; SEASON PROJECTIONS</small></div>
+    <nav class="comp-tabs" id="comp-tabs"></nav>
+</header>
+
+<section class="headline">
+    <div class="headline-inner">
+        <div class="headline-eyebrow">This week's closest call</div>
+        <div id="headline-fixture"></div>
+        <div id="headline-sub"></div>
+    </div>
+</section>
+
+<main>
+    <div class="standings-toolbar">
+        <h2 class="section-title" id="standings-title">Projected Table</h2>
+        <div class="view-toggle" id="view-toggle">
+            <button class="vtab active" data-view="table">Table</button>
+            <button class="vtab" data-view="grid">Results Grid</button>
+        </div>
+    </div>
+    <p class="section-note" id="standings-note"></p>
+    <div id="standings-panel"></div>
+
+    <h2 class="section-title">This Week's Fixtures</h2>
+    <p class="section-note">Win / draw / loss split and projected scoreline (expected goals) for each match.</p>
+    <div class="fixture-list" id="fixture-list"></div>
+</main>
+
+<footer>
+    <p>Model: minimal Dixon-Coles Poisson (pre-covariate) · placeholder version tag v0.0-sample</p>
+    <p>This page renders <code>standings.json</code> + <code>fixtures.json</code> per the data contract in frontend_design_notes.md — right now that data is a deterministic sample generator standing in for <code>run_model.py predict</code>.</p>
+</footer>
+
+<script>
+/* =====================================================================
+   LIVE DATA LOADER
+   Fetches standings.json / fixtures.json / season_fixtures.json per
+   division (see frontend_design_notes.md for the exact contract, and
+   convert_predictions.py for how they're produced from the model's
+   predict-command CSV). Nothing below invents numbers: projected-points
+   and title/top4/relegation probabilities render as "–" until the
+   season-simulation step exists and actually populates them.
+   ===================================================================== */
+
+function clamp(v,lo,hi){ return Math.max(lo, Math.min(hi, v)); }
+
+// Which divisions to look for, and the short tab label / column labels
+// for each. A division with no data/<slug>/ folder is silently skipped —
+// add League One / League Two here whenever you start publishing them.
+const DIVISION_CONFIG = {
+  "Premier League": { tab: "PREM",  titleLabel: "Title",     secondLabel: "Top 4",      relegLabel: "Relegation" },
+  "Championship":   { tab: "CHAMP", titleLabel: "Automatic", secondLabel: "Play-offs",  relegLabel: "Relegation" },
+  "League One":     { tab: "L1",    titleLabel: "Automatic", secondLabel: "Play-offs",  relegLabel: "Relegation" },
+  "League Two":     { tab: "L2",    titleLabel: "Automatic", secondLabel: "Play-offs",  relegLabel: "Relegation" }
+};
+
+// League-position zones, one row-tint / left-edge colour per zone. Same
+// idea as the H/D/A colour language used in the fixture bars: reused, not
+// reinvented, so the whole page speaks one visual vocabulary. Based on
+// current league position, which is real data even before the
+// season-simulation step exists.
+const ZONES = {
+  "Premier League": [
+    {from:1,  to:1,  cls:"zone-a",      label:"Champions (1st)"},
+    {from:2,  to:4,  cls:"zone-b",      label:"Champions League"},
+    {from:5,  to:5,  cls:"zone-c",      label:"Europa League"},
+    {from:6,  to:6,  cls:"zone-d",      label:"Conference League"},
+    {from:18, to:20, cls:"zone-releg",  label:"Relegation"}
+  ],
+  "Championship": [
+    {from:1,  to:2,  cls:"zone-a",      label:"Automatic promotion"},
+    {from:3,  to:6,  cls:"zone-b",      label:"Play-offs"},
+    {from:21, to:24, cls:"zone-releg",  label:"Relegation"}
+  ]
+};
+
+function zoneForRank(compName, rank){
+  return (ZONES[compName] || []).find(z => rank >= z.from && rank <= z.to) || null;
+}
+
+function slugify(name){
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+// Auto-generates a short code for the grid's row/column headers, since
+// real team lists vary season to season (promotion/relegation) and
+// aren't known ahead of time the way the old sample data's were.
+// Collisions (e.g. two "West ..." clubs) get disambiguated with a digit —
+// swap in a curated lookup table later if you want authentic club codes.
+function codeFor(name, used){
+  const words = name.replace(/[^A-Za-z ]/g, "").split(/\s+/).filter(Boolean);
+  let code;
+  if(words.length >= 3) code = words.slice(0,3).map(w => w[0]).join("");
+  else if(words.length === 2) code = words[0].slice(0,2) + words[1][0];
+  else code = words[0].slice(0,3);
+  code = code.toUpperCase();
+  let final = code, n = 1;
+  while(used.has(final)){ final = code.slice(0,2) + (n++); }
+  used.add(final);
+  return final;
+}
+
+// Turns the flat season_fixtures.json list into the i-by-j matrix the
+// grid renders. Cells for pairs with no fixture in the file yet (e.g.
+// only some rounds have been scheduled so far) are left "empty" rather
+// than guessed at.
+function buildGridFromSeason(teams, fixtures){
+  const idx = Object.fromEntries(teams.map((t,i) => [t,i]));
+  const n = teams.length;
+  const matrix = Array.from({length:n}, (_,i) =>
+    Array.from({length:n}, (_,j) => i===j ? {diag:true} : {diag:false, empty:true}));
+  fixtures.forEach(f => {
+    const i = idx[f.home_team], j = idx[f.away_team];
+    if(i === undefined || j === undefined){
+      console.warn("Grid: team name not found in standings — check for a naming mismatch:", f.home_team, f.away_team);
+      return;
+    }
+    if(f.is_played){
+      matrix[i][j] = {
+        diag:false, empty:false, played:true,
+        homeScore: f.actual_score.home, awayScore: f.actual_score.away,
+        pHome: f.actual_score.home > f.actual_score.away ? 1 : 0,
+        pAway: f.actual_score.away > f.actual_score.home ? 1 : 0
+      };
+    } else {
+      matrix[i][j] = {
+        diag:false, empty:false, played:false,
+        pHome: f.home_win_prob, pAway: f.away_win_prob
+      };
+    }
+  });
+  return matrix;
+}
+
+const state = { comp: null, view: "table" };
+const COMPETITIONS = {};
+const DATA = {};
+
+async function loadCompetition(name){
+  const slug = slugify(name);
+  try {
+    const [standingsRes, fixturesRes, seasonRes] = await Promise.all([
+      fetch(`data/${slug}/standings.json`),
+      fetch(`data/${slug}/fixtures.json`),
+      fetch(`data/${slug}/season_fixtures.json`)
+    ]);
+    if(!standingsRes.ok) return null; // no data published for this division yet
+
+    const standingsJson = await standingsRes.json();
+    const fixturesJson = await fixturesRes.json();
+    const seasonJson = await seasonRes.json();
+
+    const teams = standingsJson.teams.map(t => t.team); // already rank-ordered
+    const used = new Set();
+    const codes = teams.map(t => codeFor(t, used));
+    const cfg = DIVISION_CONFIG[name] || { tab: name.slice(0,5).toUpperCase(), titleLabel:"Title", secondLabel:"Top half", relegLabel:"Relegation" };
+
+    COMPETITIONS[name] = { size: teams.length, teams, codes, ...cfg };
+    DATA[name] = {
+      standings: standingsJson.teams,
+      fixtures: fixturesJson.fixtures,
+      grid: buildGridFromSeason(teams, seasonJson.fixtures)
+    };
+    return name;
+  } catch(err){
+    console.error(`Failed to load ${name}:`, err);
+    return null;
+  }
+}
+
+function pct(x){ return Math.round(x*100) + "%"; }
+
+function renderTabs(){
+  const nav = document.getElementById("comp-tabs");
+  nav.innerHTML = "";
+  Object.keys(COMPETITIONS).forEach(name => {
+    const btn = document.createElement("button");
+    btn.className = "tab" + (name === state.comp ? " active" : "");
+    btn.textContent = (COMPETITIONS[name] && COMPETITIONS[name].tab) || name.slice(0,5).toUpperCase();
+    btn.setAttribute("aria-pressed", name === state.comp);
+    btn.addEventListener("click", () => { state.comp = name; renderAll(); });
+    nav.appendChild(btn);
+  });
+}
+
+function renderStandingsMeta(){
+  document.getElementById("standings-title").textContent = "Projected Table — " + state.comp;
+  document.getElementById("standings-note").textContent =
+    "Simulated final points range from 10,000 Monte Carlo season replays, run from the current matchweek.";
+}
+
+function probCell(p, cls){
+  if(p === null || p === undefined || Number.isNaN(p)){
+    return `<span class="prob-cell"><span class="prob-num">–</span></span>`;
+  }
+  return `<span class="prob-cell">
+    <span class="prob-num">${pct(p)}</span>
+    <span class="prob-track"><span class="fill ${cls}" style="width:${p*100}%;"></span></span>
+  </span>`;
+}
+
+function renderZoneLegend(){
+  const zones = ZONES[state.comp] || [];
+  return `<div class="zone-legend">` +
+    zones.map(z => `<span class="zone-chip"><span class="chip-swatch ${z.cls}"></span>${z.label}</span>`).join("") +
+  `</div>`;
+}
+
+function renderStandingsTable(panel){
+  const comp = COMPETITIONS[state.comp];
+  const rows = DATA[state.comp].standings;
+  const withProjection = rows.filter(r => r.projected_pts_high != null && r.projected_pts_low != null);
+  const haveProjections = withProjection.length > 0;
+  const maxHigh = haveProjections ? Math.max(...withProjection.map(r => r.projected_pts_high)) : 0;
+  const minLow = haveProjections ? Math.min(...withProjection.map(r => r.projected_pts_low)) : 0;
+  const span = maxHigh - minLow || 1;
+
+  let html = `<div class="table-scroll"><table class="standings"><thead><tr>
+    <th class="num">#</th><th>Team</th><th class="num">Pld</th><th class="num">Pts</th>
+    <th>Projected pts</th>
+    <th class="num">${comp.titleLabel}</th><th class="num">${comp.secondLabel}</th><th class="num">${comp.relegLabel}</th>
+  </tr></thead><tbody>`;
+
+  rows.forEach(r => {
+    const zone = zoneForRank(state.comp, r.rank);
+    const rowClass = zone ? zone.cls : "";
+
+    let projectedCell;
+    if(r.projected_pts_mean == null){
+      projectedCell = `<span class="range-label">–</span>`;
+    } else {
+      const leftPct = ((r.projected_pts_low - minLow) / span) * 100;
+      const widthPct = ((r.projected_pts_high - r.projected_pts_low) / span) * 100;
+      const meanPct = ((r.projected_pts_mean - minLow) / span) * 100;
+      projectedCell = `
+        <span class="range-bar">
+          <span class="fill" style="left:${leftPct}%; width:${widthPct}%;"></span>
+          <span class="mean-tick" style="left:${meanPct}%;"></span>
+        </span>
+        <span class="range-label">${r.projected_pts_low}–${r.projected_pts_high}</span>`;
+    }
+
+    html += `<tr class="${rowClass}">
+      <td class="num"><span class="rank-badge">${r.rank}</span></td>
+      <td class="team-cell">${r.team}</td>
+      <td class="num">${r.played}</td>
+      <td class="num">${r.points}</td>
+      <td>${projectedCell}</td>
+      <td class="num">${probCell(r.title_prob,"title")}</td>
+      <td class="num">${probCell(r.top4_prob,"top4")}</td>
+      <td class="num">${probCell(r.relegation_prob,"releg")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table></div>`;
+  if(!haveProjections){
+    html += `<p class="section-note" style="margin-top:-4px;">Projected points and title/top-4/relegation odds show "–" until the season-simulation (Monte Carlo) step exists — see build_log.md. Zone colouring below reflects current position, which is real.</p>`;
+  }
+  html += renderZoneLegend();
+  panel.innerHTML = html;
+}
+
+function renderGrid(panel){
+  const comp = COMPETITIONS[state.comp];
+  const matrix = DATA[state.comp].grid;
+
+  let html = `<div class="grid-wrap"><table class="grid-table"><thead><tr><th class="corner">H\\A</th>`;
+  for(let j=0;j<comp.size;j++){
+    html += `<th class="col-head" title="${comp.teams[j]}">${comp.codes[j]}</th>`;
+  }
+  html += `</tr></thead><tbody>`;
+
+  for(let i=0;i<comp.size;i++){
+    html += `<tr><th class="row-head" title="${comp.teams[i]}">${comp.codes[i]}</th>`;
+    for(let j=0;j<comp.size;j++){
+      const cell = matrix[i][j];
+      if(cell.diag){ html += `<td class="diag"></td>`; continue; }
+      if(cell.empty){ html += `<td class="cell" title="${comp.teams[i]} v ${comp.teams[j]} — not fixtured yet"></td>`; continue; }
+      const dom = cell.pHome - cell.pAway;
+      let bg;
+      if(Math.abs(dom) < 0.06){ bg = "rgba(107,107,99,0.14)"; }
+      else if(dom > 0){ bg = `rgba(22,52,42,${clamp(dom*0.55,0.06,0.30)})`; }
+      else { bg = `rgba(201,122,30,${clamp(-dom*0.55,0.06,0.30)})`; }
+      const cls = cell.played ? "cell played" : "cell projected";
+      // Played cells show the actual score; unplayed cells show the home
+      // win probability (no expected-goals field in the CSV to draw a
+      // predicted scoreline from — add one to run_model.py predict's
+      // output if you want a scoreline here instead).
+      const label = cell.played ? `${cell.homeScore}-${cell.awayScore}` : `${Math.round(cell.pHome*100)}%`;
+      html += `<td class="${cls}" style="background:${bg};" title="${comp.teams[i]} v ${comp.teams[j]}">${label}</td>`;
+    }
+    html += `</tr>`;
+  }
+  html += `</tbody></table></div>`;
+  html += `<div class="grid-legend">Rows = home team, columns = away team. Diagonal greyed — a team can't play itself.
+    <b>Bold</b> = already played (actual score), <i>italic</i> = projected (home win %, since expected-goals isn't in the model output yet).
+    Tint follows the same lean as the fixture bars below: pitch = home favoured, grey = close, amber = away favoured.</div>`;
+  panel.innerHTML = html;
+}
+
+function renderPanel(){
+  const panel = document.getElementById("standings-panel");
+  if(state.view === "grid"){ renderGrid(panel); } else { renderStandingsTable(panel); }
+}
+
+function updateViewToggle(){
+  document.querySelectorAll("#view-toggle .vtab").forEach(b => {
+    b.classList.toggle("active", b.dataset.view === state.view);
+  });
+}
+
+function renderFixtures(){
+  const fixtures = DATA[state.comp].fixtures;
+  const list = document.getElementById("fixture-list");
+  list.innerHTML = fixtures.map(f => `
+    <div class="fixture-row">
+      <div class="fx-time"><b>${f.match_date}</b>Wk. fixture</div>
+      <div>
+        <div class="fx-teams">${f.home_team}<span class="vs">v</span>${f.away_team}</div>
+        <div class="wdl-bar" role="img" aria-label="${f.home_team} ${pct(f.home_win_prob)} win, draw ${pct(f.draw_prob)}, ${f.away_team} ${pct(f.away_win_prob)} win">
+          <span class="seg h" style="width:${f.home_win_prob*100}%"></span>
+          <span class="seg d" style="width:${f.draw_prob*100}%"></span>
+          <span class="seg a" style="width:${f.away_win_prob*100}%"></span>
+        </div>
+        <div class="wdl-labels"><span>H ${pct(f.home_win_prob)}</span><span>D ${pct(f.draw_prob)}</span><span>A ${pct(f.away_win_prob)}</span></div>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* ---- headline teleprinter ---- */
+function closestFixture(fixtures){
+  return fixtures.reduce((best, f) => {
+    const gap = Math.abs(f.home_win_prob - f.away_win_prob);
+    return (!best || gap < best._gap) ? Object.assign({_gap:gap}, f) : best;
+  }, null);
+}
+
+function typeText(el, text, speed, done){
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduced){ el.textContent = text; if(done) done(); return; }
+  el.textContent = "";
+  let i = 0;
+  const cursor = document.createElement("span");
+  cursor.className = "hl-cursor";
+  cursor.textContent = "\u00A0";
+  const timer = setInterval(() => {
+    el.textContent = text.slice(0, i+1);
+    el.appendChild(cursor);
+    i++;
+    if(i >= text.length){ clearInterval(timer); if(done) done(); }
+  }, speed);
+}
+
+function renderHeadline(){
+  const f = closestFixture(DATA[state.comp].fixtures);
+  const titleEl = document.getElementById("headline-fixture");
+  const subEl = document.getElementById("headline-sub");
+  subEl.textContent = "";
+  const line1 = `${f.home_team.toUpperCase()}  v  ${f.away_team.toUpperCase()}`;
+  typeText(titleEl, line1, 28, () => {
+    const line2 = `H ${pct(f.home_win_prob)}   D ${pct(f.draw_prob)}   A ${pct(f.away_win_prob)}`;
+    setTimeout(() => typeText(subEl, line2, 18), 150);
+  });
+}
+
+function renderAll(){
+  renderTabs();
+  renderHeadline();
+  renderStandingsMeta();
+  updateViewToggle();
+  renderPanel();
+  renderFixtures();
+}
+
+document.getElementById("view-toggle").addEventListener("click", (e) => {
+  const btn = e.target.closest(".vtab");
+  if(!btn) return;
+  state.view = btn.dataset.view;
+  updateViewToggle();
+  renderPanel();
+});
+
+function showStatus(message){
+  const el = document.getElementById("status-banner");
+  el.textContent = message;
+  el.style.display = "block";
+}
+
+(async () => {
+  const results = await Promise.all(Object.keys(DIVISION_CONFIG).map(loadCompetition));
+  const available = results.filter(Boolean);
+  if(available.length === 0){
+    showStatus("No data found under data/<division>/ — check convert_predictions.py has been run and you're serving this over http:// (not opening the file directly).");
+    return;
+  }
+  state.comp = available[0];
+  renderAll();
+})();
+</script>
+</body>
+</html>
