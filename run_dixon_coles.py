@@ -36,7 +36,19 @@ from features import (
     load_fixtures,
     check_team_season_consistency,
 )
-from model import fit as fit_model, ModelConfig, posterior_rates, match_outcome_probs
+from model import build_model, fit as fit_model, ModelConfig, posterior_rates, match_outcome_probs
+
+
+def resolve_id_to_name(conn, table: str, id_col: str, name_col: str) -> dict:
+    """id -> human name lookup against a dimension table (teams,
+    competitions). IndexMap only maps position<->id (confirmed against
+    the real features.IndexMap: it stores id_to_idx/idx_to_id, nothing
+    else) — names live here, in the actual dimension tables, one join
+    away. Used purely for display/output; nothing in model/ depends on
+    this, so a naming issue here can never affect fit correctness.
+    """
+    rows = conn.execute(f"SELECT {id_col}, {name_col} FROM {table}").fetchall()
+    return dict(rows)
 
 
 def cmd_fit(args):
@@ -100,30 +112,30 @@ def cmd_predict(args):
 
     team_index = build_team_index(conn)
     division_index = build_division_index(conn)
+    n_teams_now = len(team_index.idx_to_id)
+    n_divisions_now = len(division_index.idx_to_id)
 
-    # Sanity check: the fitted posterior's team/division coords must match
-    # what the DB's dimension tables produce today. IndexMap is built from
-    # dimension tables (stable across match subsets, per
-    # feature_extraction_handoff.md), so this should hold as long as no
-    # teams/competitions were added between fit and predict — if it
-    # doesn't, home_idx/away_idx would silently point at the wrong
-    # attack/defense parameters, so fail loudly instead.
-    fitted_teams = list(idata.posterior.coords["team"].values)
-    fitted_divisions = list(idata.posterior.coords["division"].values)
-    current_teams = getattr(team_index, "names", None)
-    current_divisions = getattr(division_index, "names", None)
-    if current_teams is not None and list(current_teams) != fitted_teams:
+    # Consistency check: compare team/division COUNTS between the fitted
+    # posterior and what the DB produces today. We deliberately don't
+    # compare idata's coordinate *labels* here — any posterior fit before
+    # this patch has meaningless positional-string labels baked in (see
+    # model_handoff.md), so label content can't be trusted as a
+    # comparison basis. Counts are a weaker check (won't catch a
+    # same-count reshuffle), but are always meaningful regardless of when
+    # the posterior was fit.
+    n_teams_fitted = idata.posterior.sizes["team"]
+    n_divisions_fitted = idata.posterior.sizes["division"]
+    if n_teams_fitted != n_teams_now:
         print(
-            "ERROR: team_index from the DB no longer matches the fitted "
-            "posterior's team coordinate (a team was likely added/removed "
-            "since the last fit). Refit before predicting.",
+            f"ERROR: fitted posterior has {n_teams_fitted} teams but the DB's "
+            f"team_index currently has {n_teams_now}. Refit before predicting.",
             file=sys.stderr,
         )
         sys.exit(1)
-    if current_divisions is not None and list(current_divisions) != fitted_divisions:
+    if n_divisions_fitted != n_divisions_now:
         print(
-            "ERROR: division_index from the DB no longer matches the fitted "
-            "posterior's division coordinate. Refit before predicting.",
+            f"ERROR: fitted posterior has {n_divisions_fitted} divisions but the "
+            f"DB's division_index currently has {n_divisions_now}. Refit before predicting.",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -142,15 +154,23 @@ def cmd_predict(args):
     rates = posterior_rates(idata, fixtures.home_idx, fixtures.away_idx, fixtures.division_idx)
     probs = match_outcome_probs(rates, max_goals=args.max_goals)
 
-    team_names = fitted_teams
-    division_names = fitted_divisions
+    # Resolve real names straight from the dimension tables, via the
+    # freshly-rebuilt IndexMap's idx_to_id (position -> raw id) — this is
+    # correct regardless of what idata's own coordinate labels say.
+    team_id_to_name = resolve_id_to_name(conn, "teams", "team_id", "canonical_name")
+    division_id_to_name = resolve_id_to_name(conn, "competitions", "competition_id", "name")
+
+    home_names = [team_id_to_name[team_index.idx_to_id[i]] for i in fixtures.home_idx]
+    away_names = [team_id_to_name[team_index.idx_to_id[i]] for i in fixtures.away_idx]
+    division_names_col = [division_id_to_name[division_index.idx_to_id[d]] for d in fixtures.division_idx]
+
     out = pd.DataFrame(
         {
             "match_id": fixtures.match_id,
             "match_date": fixtures.match_date,
-            "division": [division_names[d] for d in fixtures.division_idx],
-            "home_team": [team_names[i] for i in fixtures.home_idx],
-            "away_team": [team_names[i] for i in fixtures.away_idx],
+            "division": division_names_col,
+            "home_team": home_names,
+            "away_team": away_names,
             "is_played": fixtures.is_played,
             "home_goals": fixtures.home_goals,
             "away_goals": fixtures.away_goals,

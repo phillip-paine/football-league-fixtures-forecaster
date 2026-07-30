@@ -116,7 +116,7 @@ def build_next_fixtures(season_fixtures: list[dict], limit: int = 15) -> list[di
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv_path")
-    ap.add_argument("--out-dir", default="data")
+    ap.add_argument("--out-dir")
     args = ap.parse_args()
 
     df = pd.read_csv(args.csv_path)

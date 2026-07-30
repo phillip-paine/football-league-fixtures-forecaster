@@ -233,12 +233,16 @@ def build_model(dataset, config: Optional[ModelConfig] = None) -> pm.Model:
     dataset from `load_training_matches` — i.e. every row already played,
     with a real (non-None) decay_weight — not a `load_fixtures` window.
 
-    Team/division names are pulled from `dataset.team_index` /
-    `dataset.division_index` on a best-effort basis (via `.names`, then
-    `.id_to_name`/`.names_by_id`, falling back to positional strings) so
-    this doesn't break if `IndexMap`'s exact attribute names differ from
-    what's assumed here — only coordinate *labels* (for reporting) are
-    affected, never correctness of the fit.
+    Coordinate labels for the 'team'/'division' dims come from
+    `dataset.team_index.idx_to_id` / `dataset.division_index.idx_to_id`
+    (raw db ids, stringified) — NOT human names. `IndexMap` only ever
+    stores id<->position mappings; it has no name lookup, so pretending
+    otherwise here would just be guessing. If you want human-readable
+    names in downstream output (e.g. a predictions CSV), resolve
+    id -> name against the `teams`/`competitions` tables at the point
+    where you have a DB connection (see run_dixon_coles.py's
+    `resolve_id_to_name` for the pattern) — don't thread DB access into
+    this module.
     """
     is_played = np.asarray(dataset.is_played, dtype=bool)
     if not is_played.all():
@@ -255,8 +259,8 @@ def build_model(dataset, config: Optional[ModelConfig] = None) -> pm.Model:
             "Pass the output of features.load_training_matches instead."
         )
 
-    team_names = _extract_names(getattr(dataset, "team_index", None), dataset.n_teams)
-    division_names = _extract_names(getattr(dataset, "division_index", None), dataset.n_divisions)
+    team_ids = _extract_coord_labels(getattr(dataset, "team_index", None), dataset.n_teams)
+    division_ids = _extract_coord_labels(getattr(dataset, "division_index", None), dataset.n_divisions)
 
     return build_model_from_arrays(
         home_idx=dataset.home_idx,
@@ -267,32 +271,34 @@ def build_model(dataset, config: Optional[ModelConfig] = None) -> pm.Model:
         weight=dataset.decay_weight,
         n_teams=dataset.n_teams,
         n_divisions=dataset.n_divisions,
-        team_names=team_names,
-        division_names=division_names,
+        team_names=team_ids,
+        division_names=division_ids,
         config=config,
     )
 
 
-def _extract_names(index_map, n: int):
-    """Best-effort extraction of display names from an IndexMap-like
-    object. Returns None (-> positional string fallback) if nothing
-    recognisable is found, rather than raising — a missing/renamed
-    attribute here should never break model fitting, only cosmetics.
+def _extract_coord_labels(index_map, n: int):
+    """Coordinate labels for the 'team'/'division' pm.Model dims.
+
+    Uses `IndexMap.idx_to_id` — position -> raw db id — which is
+    guaranteed to exist on the real `features.IndexMap` (confirmed against
+    the actual class: it only ever stores `id_to_idx`/`idx_to_id`, never
+    names; name resolution lives in the `teams`/`competitions` tables, not
+    on IndexMap). This intentionally does NOT attempt to look up human
+    names here — model/ has no DB connection and shouldn't guess at one;
+    name resolution for display/output belongs at the CLI layer, which
+    does have `conn` (see run_dixon_coles.py's `resolve_id_to_name`).
+
+    Falls back to positional strings only if `idx_to_id` isn't present at
+    all (e.g. a bare dataclass with no ids, as in ad-hoc testing) — never
+    silently guesses at unrelated attribute names.
     """
     if index_map is None:
         return None
-    for attr in ("names", "names_by_idx", "id_to_name"):
-        if hasattr(index_map, attr):
-            val = getattr(index_map, attr)
-            try:
-                if isinstance(val, dict):
-                    names = [str(val[i]) for i in range(n)]
-                else:
-                    names = [str(x) for x in val]
-                if len(names) == n:
-                    return names
-            except Exception:
-                continue
+    if hasattr(index_map, "idx_to_id"):
+        ids = list(index_map.idx_to_id)
+        if len(ids) == n:
+            return [str(i) for i in ids]
     return None
 
 
