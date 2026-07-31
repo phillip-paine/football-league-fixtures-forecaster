@@ -6,25 +6,46 @@ Usage:
     python convert_predictions.py predictions.csv --out-dir data
 
 Writes, per division found in the CSV:
-    data/<division-slug>/standings.json        current table (real, computed
-                                                 from is_played rows only)
+    data/<division-slug>/standings.json        current table + Monte Carlo
+                                                 season projection (see below)
     data/<division-slug>/season_fixtures.json   every match, played + upcoming
                                                  (feeds the Results Grid)
-    data/<division-slug>/fixtures.json          the next unplayed gameweek
+    data/<division-slug>/fixtures.json          the next upcoming gameweek
                                                  (feeds the weekly fixture list)
 
 standings.json's projected_pts_* / title_prob / top4_prob / relegation_prob
-fields are written as null. Those need the season-simulation (Monte Carlo)
-step, which per build_log.md doesn't exist yet -- this script only ever
-reports the real, played-so-far table. The frontend shows "-" for those
-columns until real numbers exist; it should never fabricate them.
+are produced by simulating the season's remaining (unplayed) fixtures many
+times, drawing each match's outcome from the model's own p_home_win/p_draw/
+p_away_win -- not a separate model, just repeated sampling of what the CSV
+already gives us. This is a simplified stand-in for the full posterior-based
+Monte Carlo in forecast_engine_design_notes.md (it treats each match as an
+independent categorical draw rather than sampling correlated team-strength
+draws from the fitted posterior, and breaks points-ties without a
+goal-difference tiebreak) -- fine for an honest "roughly how likely" read,
+worth revisiting once run_model.py grows a real season-simulation mode.
+If a division has no unplayed matches left (season already finished), these
+fields stay null rather than simulating nothing.
 """
 import argparse
 import json
 import re
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
+
+# Promotion/European/relegation slot counts per division, used only for the
+# Monte Carlo probability columns below. Extend this as you add divisions;
+# an unlisted division falls back to a generic top-6 / bottom-4 guess.
+DIVISION_CONFIG = {
+    "Premier League": {"title_slots": 1, "top_slots": 4, "relegation_slots": 3},
+    "Championship":   {"title_slots": 2, "top_slots": 6, "relegation_slots": 4},
+    "League One":     {"title_slots": 2, "top_slots": 6, "relegation_slots": 4},
+    "League Two":     {"title_slots": 2, "top_slots": 6, "relegation_slots": 2},
+}
+DEFAULT_CONFIG = {"title_slots": 1, "top_slots": 6, "relegation_slots": 4}
+N_TRIALS = 50  # just for testing - will change for full runs later
+RNG_SEED = 42
 
 
 def slugify(name: str) -> str:
@@ -74,10 +95,66 @@ def build_standings(df_div: pd.DataFrame) -> list[dict]:
             "relegation_prob": None,
         })
 
-    rows.sort(key=lambda r: (-r["points"], -r["goal_diff"], r["team"]))
+    rows.sort(key=lambda row: (-row["points"], -row["goal_diff"], row["team"]))
     for i, r in enumerate(rows):
         r["rank"] = i + 1
     return rows
+
+
+def simulate_season(df_div: pd.DataFrame, standings: list[dict], config: dict,
+                    n_trials: int = N_TRIALS, seed: int = RNG_SEED) -> None:
+    """Fills in projected_pts_* / title_prob / top4_prob / relegation_prob on
+    `standings` in place, by simulating every unplayed match n_trials times.
+    No-op (leaves the None defaults) if there's nothing left to play."""
+    unplayed = df_div[~df_div.is_played]
+    if unplayed.empty:
+        return
+
+    teams = [r["team"] for r in standings]
+    team_pos = {t: i for i, t in enumerate(teams)}
+    n_teams = len(teams)
+    current_points = np.array([r["points"] for r in standings], dtype=float)
+
+    home_idx = unplayed.home_team.map(team_pos).to_numpy()
+    away_idx = unplayed.away_team.map(team_pos).to_numpy()
+    p_home = unplayed.p_home_win.to_numpy()
+    p_draw = unplayed.p_draw.to_numpy()
+    # p_away implied as the remainder, so the three always sum to 1 even if
+    # rounding in the CSV made them not quite add up.
+
+    rng = np.random.default_rng(seed)
+    n_matches = len(unplayed)
+    r = rng.random((n_trials, n_matches))
+    is_home_win = r < p_home[None, :]
+    is_draw = (~is_home_win) & (r < (p_home + p_draw)[None, :])
+    is_away_win = ~(is_home_win | is_draw)
+
+    home_pts = np.where(is_home_win, 3, np.where(is_draw, 1, 0)).astype(float)
+    away_pts = np.where(is_away_win, 3, np.where(is_draw, 1, 0)).astype(float)
+
+    home_onehot = np.zeros((n_matches, n_teams))
+    home_onehot[np.arange(n_matches), home_idx] = 1
+    away_onehot = np.zeros((n_matches, n_teams))
+    away_onehot[np.arange(n_matches), away_idx] = 1
+
+    final_points = current_points[None, :] + home_pts @ home_onehot + away_pts @ away_onehot
+
+    # Rank per trial (0 = 1st place). Ties broken by current team order,
+    # not goal difference -- a known approximation, see module docstring.
+    order = np.argsort(-final_points, axis=1, kind="stable")
+    ranks = np.argsort(order, axis=1)
+
+    title_slots = config["title_slots"]
+    top_slots = config["top_slots"]
+    releg_slots = config["relegation_slots"]
+
+    for i, row in enumerate(standings):
+        row["projected_pts_low"] = int(np.percentile(final_points[:, i], 10))
+        row["projected_pts_mean"] = int(round(final_points[:, i].mean()))
+        row["projected_pts_high"] = int(np.percentile(final_points[:, i], 90))
+        row["title_prob"] = float((ranks[:, i] < title_slots).mean())
+        row["top4_prob"] = float((ranks[:, i] < top_slots).mean())
+        row["relegation_prob"] = float((ranks[:, i] >= n_teams - releg_slots).mean())
 
 
 def build_season_fixtures(df_div: pd.DataFrame) -> list[dict]:
@@ -100,34 +177,35 @@ def build_season_fixtures(df_div: pd.DataFrame) -> list[dict]:
     return out
 
 
-def build_next_fixtures(season_fixtures: list[dict], limit: int = 15) -> list[dict]:
+def build_next_fixtures(season_fixtures: list[dict], window_days: int = 4, limit: int = 20) -> list[dict]:
     upcoming = [f for f in season_fixtures if not f["is_played"]]
     upcoming.sort(key=lambda f: f["match_date"])
     if not upcoming:
         return []
-    next_date = upcoming[0]["match_date"]
-    same_day = [f for f in upcoming if f["match_date"] == next_date]
-    # If the "next gameweek" concept spans a weekend rather than one date in
-    # your calendar, swap this for whatever grouping key you actually have
-    # (a gameweek/round number is cleaner than a raw date, if you have one).
-    return same_day[:limit] if same_day else upcoming[:limit]
+    next_date = pd.Timestamp(upcoming[0]["match_date"])
+    window_end = next_date + pd.Timedelta(days=window_days)
+    in_window = [f for f in upcoming if next_date <= pd.Timestamp(f["match_date"]) <= window_end]
+    return in_window[:limit]
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv_path")
-    ap.add_argument("--out-dir")
+    ap.add_argument("--out-dir", default="data")
     args = ap.parse_args()
 
     df = pd.read_csv(args.csv_path)
+    df = df.loc[:, ~df.columns.str.match(r"^Unnamed")]  # drop a stray index column, if present
     out_root = Path(args.out_dir)
 
     for division, df_div in df.groupby("division"):
         slug = slugify(division)
         div_dir = out_root / slug
         div_dir.mkdir(parents=True, exist_ok=True)
+        config = DIVISION_CONFIG.get(division, DEFAULT_CONFIG)
 
         standings = build_standings(df_div)
+        simulate_season(df_div, standings, config)
         season_fixtures = build_season_fixtures(df_div)
         next_fixtures = build_next_fixtures(season_fixtures)
 
@@ -138,8 +216,9 @@ def main():
         (div_dir / "fixtures.json").write_text(
             json.dumps({"competition": division, "fixtures": next_fixtures}, indent=2))
 
+        simulated = "yes" if standings and standings[0]["projected_pts_mean"] is not None else "no unplayed matches"
         print(f"{division}: {len(standings)} teams, {len(season_fixtures)} fixtures total, "
-              f"{len(next_fixtures)} in next fixture batch -> {div_dir}/")
+              f"{len(next_fixtures)} in next fixture batch, simulated={simulated} -> {div_dir}/")
 
 
 if __name__ == "__main__":
