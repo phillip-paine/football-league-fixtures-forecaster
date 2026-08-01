@@ -102,28 +102,44 @@ def build_standings(df_div: pd.DataFrame) -> list[dict]:
 
 
 def simulate_season(df_div: pd.DataFrame, standings: list[dict], config: dict,
-                    n_trials: int = N_TRIALS, seed: int = RNG_SEED) -> None:
+                    n_trials: int = N_TRIALS, seed: int = RNG_SEED,
+                    full_season: bool = False) -> None:
     """Fills in projected_pts_* / title_prob / top4_prob / relegation_prob on
-    `standings` in place, by simulating every unplayed match n_trials times.
-    No-op (leaves the None defaults) if there's nothing left to play."""
-    unplayed = df_div[~df_div.is_played]
-    if unplayed.empty:
+    `standings` in place, by simulating matches n_trials times.
+
+    full_season=False (default): only simulates matches where is_played is
+    False, starting from each team's real current points. No-op if there's
+    nothing left to play (a completed season stays all-null, as before).
+
+    full_season=True: ignores is_played entirely and simulates every match
+    in df_div from a clean slate (0 points), using each match's own
+    predicted probabilities -- including ones that already happened. This
+    is a "pretend the season hasn't happened yet" validation mode: useful
+    for feeding in an already-completed season and comparing the fully
+    simulated table against the known real final table, without needing
+    genuinely unplayed fixtures. Requires p_home_win/p_draw/p_away_win to
+    be populated on played rows too (run_model.py predict already does
+    this -- it computes probabilities regardless of is_played).
+    """
+    matches = df_div if full_season else df_div[~df_div.is_played]
+    if matches.empty:
         return
 
     teams = [r["team"] for r in standings]
     team_pos = {t: i for i, t in enumerate(teams)}
     n_teams = len(teams)
-    current_points = np.array([r["points"] for r in standings], dtype=float)
+    starting_points = np.zeros(n_teams) if full_season else \
+        np.array([r["points"] for r in standings], dtype=float)
 
-    home_idx = unplayed.home_team.map(team_pos).to_numpy()
-    away_idx = unplayed.away_team.map(team_pos).to_numpy()
-    p_home = unplayed.p_home_win.to_numpy()
-    p_draw = unplayed.p_draw.to_numpy()
+    home_idx = matches.home_team.map(team_pos).to_numpy()
+    away_idx = matches.away_team.map(team_pos).to_numpy()
+    p_home = matches.p_home_win.to_numpy()
+    p_draw = matches.p_draw.to_numpy()
     # p_away implied as the remainder, so the three always sum to 1 even if
     # rounding in the CSV made them not quite add up.
 
     rng = np.random.default_rng(seed)
-    n_matches = len(unplayed)
+    n_matches = len(matches)
     r = rng.random((n_trials, n_matches))
     is_home_win = r < p_home[None, :]
     is_draw = (~is_home_win) & (r < (p_home + p_draw)[None, :])
@@ -137,7 +153,7 @@ def simulate_season(df_div: pd.DataFrame, standings: list[dict], config: dict,
     away_onehot = np.zeros((n_matches, n_teams))
     away_onehot[np.arange(n_matches), away_idx] = 1
 
-    final_points = current_points[None, :] + home_pts @ home_onehot + away_pts @ away_onehot
+    final_points = starting_points[None, :] + home_pts @ home_onehot + away_pts @ away_onehot
 
     # Rank per trial (0 = 1st place). Ties broken by current team order,
     # not goal difference -- a known approximation, see module docstring.
@@ -192,6 +208,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv_path")
     ap.add_argument("--out-dir", default="data")
+    ap.add_argument(
+        "--full-season-sim", action="store_true",
+        help="Ignore is_played and simulate every match from a clean slate "
+             "using predicted probabilities, even ones that already "
+             "happened. For validating a completed season's CSV (e.g. a "
+             "past season used for testing) against its known real final "
+             "table, without needing genuinely unplayed fixtures. Has no "
+             "effect on season_fixtures.json / fixtures.json -- those "
+             "still show real results and real is_played flags either way.")
     args = ap.parse_args()
 
     df = pd.read_csv(args.csv_path)
@@ -205,7 +230,7 @@ def main():
         config = DIVISION_CONFIG.get(division, DEFAULT_CONFIG)
 
         standings = build_standings(df_div)
-        simulate_season(df_div, standings, config)
+        simulate_season(df_div, standings, config, full_season=args.full_season_sim)
         season_fixtures = build_season_fixtures(df_div)
         next_fixtures = build_next_fixtures(season_fixtures)
 
@@ -217,8 +242,10 @@ def main():
             json.dumps({"competition": division, "fixtures": next_fixtures}, indent=2))
 
         simulated = "yes" if standings and standings[0]["projected_pts_mean"] is not None else "no unplayed matches"
+        mode = "full-season (validation)" if args.full_season_sim else "remaining fixtures only"
         print(f"{division}: {len(standings)} teams, {len(season_fixtures)} fixtures total, "
-              f"{len(next_fixtures)} in next fixture batch, simulated={simulated} -> {div_dir}/")
+              f"{len(next_fixtures)} in next fixture batch, simulated={simulated} "
+              f"[{mode}] -> {div_dir}/")
 
 
 if __name__ == "__main__":
