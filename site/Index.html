@@ -122,8 +122,8 @@
     white-space:pre-wrap;
     line-height:1.5;
   }
-  .hl-cursor{display:inline-block; width:0.55em; background:var(--amber); animation:blink 1s steps(1) infinite;}
-  @keyframes blink{ 50%{opacity:0;} }
+  .hl-cursor{display:inline-block; width:0.55em; background:var(--amber); opacity:0.55; animation:blink 1.6s ease-in-out infinite;}
+  @keyframes blink{ 50%{opacity:0.15;} }
   #headline-sub{
     font-family:var(--mono);
     font-size:0.85rem;
@@ -254,7 +254,7 @@
   .prob-track{width:46px; height:6px; background:var(--paper-dim); border:1px solid var(--line); position:relative;}
   .prob-track .fill{position:absolute; top:0; bottom:0; left:0;}
   .prob-track .fill.title{background:var(--amber);}
-  .prob-track .fill.top4{background:var(--pitch-light);}
+  .prob-track .fill.top5{background:var(--pitch-light);}
   .prob-track .fill.releg{background:var(--brick);}
 
   /* ---- results grid ---- */
@@ -355,7 +355,7 @@
 
 <section class="headline">
     <div class="headline-inner">
-        <div class="headline-eyebrow">This week's closest call</div>
+        <div class="headline-eyebrow">Match of the Week:</div>
         <div id="headline-fixture"></div>
         <div id="headline-sub"></div>
     </div>
@@ -389,7 +389,7 @@
    division (see frontend_design_notes.md for the exact contract, and
    convert_predictions.py for how they're produced from the model's
    predict-command CSV). Nothing below invents numbers: projected-points
-   and title/top4/relegation probabilities render as "–" until the
+   and title/top5/relegation probabilities render as "–" until the
    season-simulation step exists and actually populates them.
    ===================================================================== */
 
@@ -399,7 +399,7 @@ function clamp(v,lo,hi){ return Math.max(lo, Math.min(hi, v)); }
 // for each. A division with no data/<slug>/ folder is silently skipped —
 // add League One / League Two here whenever you start publishing them.
 const DIVISION_CONFIG = {
-  "Premier League": { tab: "PREM",  titleLabel: "Title",     secondLabel: "Top 4",      relegLabel: "Relegation" },
+  "Premier League": { tab: "PREM",  titleLabel: "Title",     secondLabel: "CL Qualification",   relegLabel: "Relegation" },
   "Championship":   { tab: "CHAMP", titleLabel: "Automatic", secondLabel: "Play-offs",  relegLabel: "Relegation" },
   "League One":     { tab: "L1",    titleLabel: "Automatic", secondLabel: "Play-offs",  relegLabel: "Relegation" },
   "League Two":     { tab: "L2",    titleLabel: "Automatic", secondLabel: "Play-offs",  relegLabel: "Relegation" }
@@ -413,9 +413,9 @@ const DIVISION_CONFIG = {
 const ZONES = {
   "Premier League": [
     {from:1,  to:1,  cls:"zone-a",      label:"Champions (1st)"},
-    {from:2,  to:4,  cls:"zone-b",      label:"Champions League"},
-    {from:5,  to:5,  cls:"zone-c",      label:"Europa League"},
-    {from:6,  to:6,  cls:"zone-d",      label:"Conference League"},
+    {from:2,  to:5,  cls:"zone-b",      label:"Champions League"},
+    {from:6,  to:6,  cls:"zone-c",      label:"Europa League"},
+    {from:7,  to:7,  cls:"zone-d",      label:"Conference League"},
     {from:18, to:20, cls:"zone-releg",  label:"Relegation"}
   ],
   "Championship": [
@@ -501,7 +501,7 @@ async function loadCompetition(name){
     const fixturesJson = await fixturesRes.json();
     const seasonJson = await seasonRes.json();
 
-    const teams = standingsJson.teams.map(t => t.team); // already rank-ordered
+    const teams = standingsJson.teams.map(t => t.team).slice().sort((a, b) => a.localeCompare(b));  // alphabetical sort
     const used = new Set();
     const codes = teams.map(t => codeFor(t, used));
     const cfg = DIVISION_CONFIG[name] || { tab: name.slice(0,5).toUpperCase(), titleLabel:"Title", secondLabel:"Top half", relegLabel:"Relegation" };
@@ -598,7 +598,7 @@ function renderStandingsTable(panel){
       <td class="num">${r.points}</td>
       <td>${projectedCell}</td>
       <td class="num">${probCell(r.title_prob,"title")}</td>
-      <td class="num">${probCell(r.top4_prob,"top4")}</td>
+      <td class="num">${probCell(r.top5_prob,"top5")}</td>
       <td class="num">${probCell(r.relegation_prob,"releg")}</td>
     </tr>`;
   });
@@ -680,10 +680,88 @@ function renderFixtures(){
 }
 
 /* ---- headline teleprinter ---- */
-function closestFixture(fixtures){
+// --- Match of the Week heuristic ---
+// A quick, documented guess at "importance for league position", not a
+// real model output. Three ingredients, each 0..1:
+//   - stakes:   does this match sit near a real boundary (title / top-N
+//               CL / relegation) for either team? Distance-based: full
+//               stakes right at the boundary, decaying to zero 6 ranks
+//               either side -- narrowed to 3 for a team playing its own
+//               last remaining fixture, since there are fewer games left
+//               to still cross that line.
+//   - rivalry:  a real historical/local-derby rivalry (see
+//               rivalries.json), not table proximity -- a genuine derby
+//               matters whatever the table says.
+//   - drama:    how close the match ITSELF is (win-prob gap) -- a small
+//               tiebreaker, not the main signal.
+// Weighted 55/30/15. Revisit the weights/shape freely -- this is a
+// starting heuristic, not a tuned one.
+
+// Boundary ranks (title / top-N / relegation) read straight off ZONES,
+// so they never drift out of sync with the table's own colour-coding.
+function divisionBoundaries(compName){
+  const zones = ZONES[compName] || [];
+  const zoneA = zones.find(z => z.cls === "zone-a");
+  const zoneB = zones.find(z => z.cls === "zone-b");
+  const zoneReleg = zones.find(z => z.cls === "zone-releg");
+  return {
+    title: zoneA ? zoneA.to : null,
+    top: zoneB ? zoneB.to : null,
+    relegation: zoneReleg ? zoneReleg.from : null
+  };
+}
+
+// Games remaining = total double round-robin games minus games already
+// played. window narrows from 6 to 3 once a team has one game left.
+function teamWindow(teamRow, nTeams){
+  const totalGames = 2 * (nTeams - 1);
+  const remaining = totalGames - teamRow.played;
+  return remaining <= 1 ? 3 : 6;
+}
+
+function teamStakes(rank, boundaries, window){
+  const boundaryRanks = [boundaries.title, boundaries.top, boundaries.relegation].filter(b => b != null);
+  if(boundaryRanks.length === 0) return 0;
+  const minDist = Math.min(...boundaryRanks.map(b => Math.abs(rank - b)));
+  return Math.max(0, 1 - minDist / window);
+}
+
+// Populated by loadRivalries() at startup from rivalries.json.
+const RIVALRY_PAIRS = new Set();
+function rivalryKey(a, b){ return [a, b].sort().join("|||"); }
+
+async function loadRivalries(){
+  try {
+    const res = await fetch("rivalries.json");
+    if(!res.ok) return;
+    const data = await res.json();
+    (data.rivalries || []).forEach(([a, b]) => RIVALRY_PAIRS.add(rivalryKey(a, b)));
+  } catch(err){
+    console.warn("Couldn't load rivalries.json -- Match of the Week will run without the rivalry boost.", err);
+  }
+}
+
+function matchImportance(f, standings, compName){
+  const homeRow = standings.find(r => r.team === f.home_team);
+  const awayRow = standings.find(r => r.team === f.away_team);
+  if(!homeRow || !awayRow) return -1; // name mismatch -- treat as lowest priority, don't crash
+
+  const nTeams = standings.length;
+  const boundaries = divisionBoundaries(compName);
+  const homeStakes = teamStakes(homeRow.rank, boundaries, teamWindow(homeRow, nTeams));
+  const awayStakes = teamStakes(awayRow.rank, boundaries, teamWindow(awayRow, nTeams));
+  const stakes = (homeStakes + awayStakes) / 2;
+
+  const rivalry = RIVALRY_PAIRS.has(rivalryKey(f.home_team, f.away_team)) ? 1 : 0;
+  const drama = 1 - Math.abs(f.home_win_prob - f.away_win_prob);
+
+  return stakes * 0.55 + rivalry * 0.30 + drama * 0.15;
+}
+
+function matchOfTheWeek(fixtures, standings, compName){
   return fixtures.reduce((best, f) => {
-    const gap = Math.abs(f.home_win_prob - f.away_win_prob);
-    return (!best || gap < best._gap) ? Object.assign({_gap:gap}, f) : best;
+    const score = matchImportance(f, standings, compName);
+    return (!best || score > best._score) ? Object.assign({_score:score}, f) : best;
   }, null);
 }
 
@@ -704,14 +782,21 @@ function typeText(el, text, speed, done){
 }
 
 function renderHeadline(){
-  const f = closestFixture(DATA[state.comp].fixtures);
+  const f = matchOfTheWeek(DATA[state.comp].fixtures, DATA[state.comp].standings, state.comp);
   const titleEl = document.getElementById("headline-fixture");
   const subEl = document.getElementById("headline-sub");
-  subEl.textContent = "";
+  if(!f){ titleEl.textContent = "No upcoming fixtures"; subEl.textContent = ""; return; }
   const line1 = `${f.home_team.toUpperCase()}  v  ${f.away_team.toUpperCase()}`;
+  const line2 = `Home ${pct(f.home_win_prob)}   Draw ${pct(f.draw_prob)}   Away ${pct(f.away_win_prob)}`;
+  // Type the match line once; the probability line just fades in
+  // alongside it instead of a second full retype -- one animated
+  // moment, not two competing ones.
+  subEl.style.transition = "none";
+  subEl.style.opacity = "0";
+  subEl.textContent = line2;
   typeText(titleEl, line1, 28, () => {
-    const line2 = `H ${pct(f.home_win_prob)}   D ${pct(f.draw_prob)}   A ${pct(f.away_win_prob)}`;
-    setTimeout(() => typeText(subEl, line2, 18), 150);
+    subEl.style.transition = "opacity 0.5s ease";
+    subEl.style.opacity = "1";
   });
 }
 

@@ -1,0 +1,52 @@
+{
+  "_readme": "Local-derby rivalries used as one input to index.html's Match of the Week heuristic (see matchImportance() / rivalryKey()).",
+  "rivalries": [
+    ["Arsenal", "Tottenham Hotspur"],
+    ["Arsenal", "Chelsea"],
+    ["Arsenal", "West Ham United"],
+    ["Chelsea", "Tottenham Hotspur"],
+    ["Chelsea", "Fulham"],
+    ["Chelsea", "Queens Park Rangers"],
+    ["Tottenham Hotspur", "West Ham United"],
+    ["West Ham United", "Millwall"],
+
+    ["Manchester United", "Manchester City"],
+    ["Manchester United", "Liverpool"],
+    ["Manchester United", "Leeds United"],
+    ["Liverpool", "Everton"],
+
+    ["Newcastle United", "Sunderland"],
+    ["Middlesbrough", "Sunderland"],
+    ["Middlesbrough", "Newcastle United"],
+
+    ["Aston Villa", "Birmingham City"],
+    ["West Bromwich Albion", "Aston Villa"],
+    ["West Bromwich Albion", "Wolverhampton Wanderers"],
+    ["West Bromwich Albion", "Birmingham City"],
+    ["Wolverhampton Wanderers", "Birmingham City"],
+
+    ["Nottingham Forest", "Derby County"],
+    ["Nottingham Forest", "Leicester City"],
+    ["Leicester City", "Derby County"],
+    ["Coventry City", "Leicester City"],
+
+    ["Sheffield United", "Sheffield Wednesday"],
+    ["Leeds United", "Huddersfield Town"],
+
+    ["Bristol City", "Bristol Rovers"],
+    ["Bristol City", "Cardiff City"],
+    ["Cardiff City", "Swansea City"],
+
+    ["Norwich City", "Ipswich Town"],
+    ["Crystal Palace", "Brighton & Hove Albion"],
+    ["Crystal Palace", "Millwall"],
+    ["Charlton Athletic", "Millwall"],
+
+    ["Preston North End", "Blackburn Rovers"],
+    ["Burnley", "Blackburn Rovers"],
+    ["Burnley", "Preston North End"],
+
+    ["Portsmouth", "Southampton"],
+    ["Stoke City", "Port Vale"]
+  ]
+}
