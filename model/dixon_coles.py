@@ -28,6 +28,24 @@ rationale and open questions):
   weight argument. weight=1 recovers the unweighted likelihood exactly.
 - rho, division_intercept and home_advantage all use non-centered
   parameterizations for sampler geometry; attack/defense too.
+- promoted_team / relegated_team covariate: the global attack/defense
+  pool above handles *thin-data* uncertainty (a team with few matches
+  gets shrunk hard toward the average team), but it does nothing about
+  *bias* — a team with 200 Championship matches and zero Premier League
+  matches has a confidently-estimated attack/defense rating that's
+  simply wrong for the question being asked, because "confident" here
+  tracks sample size, not relevance to the current division. Four
+  scalar shift terms (promoted_attack_shift, promoted_defense_shift,
+  relegated_attack_shift, relegated_defense_shift) correct for this
+  directly: wherever attack[team]/defense[team] enters the linear
+  predictor, the appropriate shift is added on top of it whenever that
+  team was promoted/relegated into its current division this season
+  (features.promotion / MatchDataset.is_promoted_home etc.). Each shift
+  is a single value shared across all teams and seasons (not
+  per-team — there isn't enough promoted-team data to estimate one per
+  team), with its own weakly-informative shrinkage prior in
+  ModelConfig, and ships only after clearing ablation testing per
+  forecast_engine_design_notes.md's rule for new covariates.
 """
 
 from dataclasses import dataclass, field
@@ -55,6 +73,17 @@ class ModelConfig:
     rho_sd: float = 0.2
     max_goals_for_tau: int = 1  # Dixon-Coles correction only touches 0/1 scores
 
+    # Promoted/relegated covariate — single shared shift, not per-team
+    # (see module docstring). Same scale as sigma_attack_sd/sigma_defense_sd
+    # since these shifts are directly additive to attack/defense; loose
+    # first-pass default, not yet backtested. Sign is learned, not assumed
+    # — a promoted team's attack shift is expected to land negative and a
+    # relegated team's positive, but nothing here forces that.
+    promoted_attack_shift_sd: float = 0.3
+    promoted_defense_shift_sd: float = 0.3
+    relegated_attack_shift_sd: float = 0.3
+    relegated_defense_shift_sd: float = 0.3
+
 
 def _low_score_masks(home_goals: np.ndarray, away_goals: np.ndarray):
     home_goals = np.asarray(home_goals)
@@ -78,6 +107,10 @@ def build_model_from_arrays(
         n_divisions: int,
         team_names: Optional[Sequence[str]] = None,
         division_names: Optional[Sequence[str]] = None,
+        is_promoted_home: Optional[np.ndarray] = None,
+        is_promoted_away: Optional[np.ndarray] = None,
+        is_relegated_home: Optional[np.ndarray] = None,
+        is_relegated_away: Optional[np.ndarray] = None,
         config: Optional[ModelConfig] = None,
 ) -> pm.Model:
     """Build (but do not fit) the hierarchical Dixon-Coles model from raw
@@ -89,6 +122,14 @@ def build_model_from_arrays(
     index into [0, n_teams); `division_idx` indexes into [0, n_divisions).
     `weight` is the per-match decay weight (features.decay_weights output);
     pass an array of ones for an unweighted fit.
+
+    is_promoted_home/is_promoted_away/is_relegated_home/is_relegated_away:
+    bool arrays, length n_matches (features.MatchDataset's fields of the
+    same names). All four default to None, which is treated as all-False
+    — i.e. the promoted/relegated shift terms are still in the model
+    (so idata always has them, for a stable output shape) but contribute
+    nothing, equivalent to the covariate not existing. This is what an
+    ablation-test "baseline" run should pass (or just omit them).
     """
     cfg = config or ModelConfig()
 
@@ -107,12 +148,27 @@ def build_model_from_arrays(
     weight = np.asarray(weight, dtype="float64")
 
     n_matches = home_goals.shape[0]
+
+    def _bool_flags(arr: Optional[np.ndarray]) -> np.ndarray:
+        if arr is None:
+            return np.zeros(n_matches, dtype="int8")
+        return np.asarray(arr, dtype="int8")
+
+    is_promoted_home = _bool_flags(is_promoted_home)
+    is_promoted_away = _bool_flags(is_promoted_away)
+    is_relegated_home = _bool_flags(is_relegated_home)
+    is_relegated_away = _bool_flags(is_relegated_away)
+
     for name, arr in [
         ("home_idx", home_idx),
         ("away_idx", away_idx),
         ("division_idx", division_idx),
         ("away_goals", away_goals),
         ("weight", weight),
+        ("is_promoted_home", is_promoted_home),
+        ("is_promoted_away", is_promoted_away),
+        ("is_relegated_home", is_relegated_home),
+        ("is_relegated_away", is_relegated_away),
     ]:
         if arr.shape[0] != n_matches:
             raise ValueError(
@@ -148,6 +204,10 @@ def build_model_from_arrays(
         weight_d = pm.Data("weight", weight, dims="match")
         home_goals_d = pm.Data("home_goals_obs", home_goals, dims="match")
         away_goals_d = pm.Data("away_goals_obs", away_goals, dims="match")
+        is_promoted_home_d = pm.Data("is_promoted_home", is_promoted_home, dims="match")
+        is_promoted_away_d = pm.Data("is_promoted_away", is_promoted_away, dims="match")
+        is_relegated_home_d = pm.Data("is_relegated_home", is_relegated_home, dims="match")
+        is_relegated_away_d = pm.Data("is_relegated_away", is_relegated_away, dims="match")
 
         # --- top level ("competition"): one mean scoring rate, one mean
         # home advantage, shared by every division ---
@@ -189,16 +249,60 @@ def build_model_from_arrays(
         # --- Dixon-Coles low-score correlation parameter ---
         rho = pm.Normal("rho", 0.0, cfg.rho_sd)
 
+        # --- promoted/relegated shift: single shared scalar per shift
+        # (not per-team — see module docstring). Added directly onto
+        # attack[team]/defense[team] wherever that team's own rating
+        # enters the linear predictor, gated by that match's promoted/
+        # relegated flags for the *specific team* the term belongs to
+        # (a promoted home team's attack shifts log_lambda_home; the
+        # same team's defense shifts log_lambda_away when they're away,
+        # etc. — this is why the shift is added at the attack/defense
+        # level rather than tacked onto the final log_lambda sums,
+        # which would get the home/away attribution wrong). ---
+        promoted_attack_shift = pm.Normal(
+            "promoted_attack_shift", 0.0, cfg.promoted_attack_shift_sd
+        )
+        promoted_defense_shift = pm.Normal(
+            "promoted_defense_shift", 0.0, cfg.promoted_defense_shift_sd
+        )
+        relegated_attack_shift = pm.Normal(
+            "relegated_attack_shift", 0.0, cfg.relegated_attack_shift_sd
+        )
+        relegated_defense_shift = pm.Normal(
+            "relegated_defense_shift", 0.0, cfg.relegated_defense_shift_sd
+        )
+
+        attack_home_eff = (
+                attack[home_idx_d]
+                + promoted_attack_shift * is_promoted_home_d
+                + relegated_attack_shift * is_relegated_home_d
+        )
+        attack_away_eff = (
+                attack[away_idx_d]
+                + promoted_attack_shift * is_promoted_away_d
+                + relegated_attack_shift * is_relegated_away_d
+        )
+        defense_home_eff = (
+                defense[home_idx_d]
+                + promoted_defense_shift * is_promoted_home_d
+                + relegated_defense_shift * is_relegated_home_d
+        )
+        defense_away_eff = (
+                defense[away_idx_d]
+                + promoted_defense_shift * is_promoted_away_d
+                + relegated_defense_shift * is_relegated_away_d
+        )
+
         log_lambda_home = (
                 division_intercept[division_idx_d]
                 + home_advantage[division_idx_d]
-                + attack[home_idx_d]
-                - defense[away_idx_d]
+                + attack_home_eff
+                - defense_away_eff
         )
         log_lambda_away = (
                 division_intercept[division_idx_d]
-                + attack[away_idx_d]
-                - defense[home_idx_d]
+                + attack_away_eff
+                - defense_home_eff
         )
         lam = pm.Deterministic("lam", pt.exp(log_lambda_home), dims="match")
         mu = pm.Deterministic("mu", pt.exp(log_lambda_away), dims="match")
@@ -273,6 +377,15 @@ def build_model(dataset, config: Optional[ModelConfig] = None) -> pm.Model:
         n_divisions=dataset.n_divisions,
         team_names=team_ids,
         division_names=division_ids,
+        # getattr, not dataset.is_promoted_home directly: tolerates a
+        # MatchDataset built before this covariate existed (an older
+        # dataclass instance without these fields at all), not just one
+        # that has them set to None. Either way build_model_from_arrays
+        # treats None as all-False.
+        is_promoted_home=getattr(dataset, "is_promoted_home", None),
+        is_promoted_away=getattr(dataset, "is_promoted_away", None),
+        is_relegated_home=getattr(dataset, "is_relegated_home", None),
+        is_relegated_away=getattr(dataset, "is_relegated_away", None),
         config=config,
     )
 
@@ -323,7 +436,9 @@ def fit(
 
     Returns an arviz.InferenceData with posterior samples of
     `division_intercept`, `home_advantage`, `attack`, `defense`, `rho`,
-    plus `lam`/`mu` (per-match expected goals) as Deterministics.
+    `promoted_attack_shift`, `promoted_defense_shift`,
+    `relegated_attack_shift`, `relegated_defense_shift`, plus `lam`/`mu`
+    (per-match expected goals) as Deterministics.
     """
     if build_kwargs:
         model = build_model_from_arrays(config=config, **build_kwargs)

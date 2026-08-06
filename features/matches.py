@@ -34,6 +34,7 @@ import pandas as pd
 
 from .decay import decay_weights
 from .indices import IndexMap, build_division_index, build_team_index
+from .promotion import PromotionStatus, build_promotion_status, lookup as lookup_promotion
 
 DateLike = dt.date | dt.datetime | str
 
@@ -68,6 +69,17 @@ class MatchDataset:
     team_index: IndexMap
     division_index: IndexMap
 
+    # Promoted/relegated covariate flags — see features.promotion. bool,
+    # True if that team was promoted/relegated *into* the division it's
+    # playing in for this match's season. Optional (default None) so
+    # datasets built before this feature existed, or any code path that
+    # deliberately opts out, still construct fine; model/dixon_coles.py
+    # treats None the same as all-False (no promoted/relegated effect).
+    is_promoted_home: np.ndarray | None = None  # bool
+    is_promoted_away: np.ndarray | None = None  # bool
+    is_relegated_home: np.ndarray | None = None  # bool
+    is_relegated_away: np.ndarray | None = None  # bool
+
     @property
     def n_matches(self) -> int:
         return len(self.match_id)
@@ -100,6 +112,10 @@ class MatchDataset:
                 "decay_weight": self.decay_weight
                 if self.decay_weight is not None
                 else np.nan,
+                "is_promoted_home": self.is_promoted_home,
+                "is_promoted_away": self.is_promoted_away,
+                "is_relegated_home": self.is_relegated_home,
+                "is_relegated_away": self.is_relegated_away,
             }
         )
 
@@ -140,6 +156,7 @@ def _rows_to_dataset(
         division_index: IndexMap,
         weight_as_of: dt.date | None,
         half_life_days: float | None,
+        promotion_status: dict[tuple[int, int], PromotionStatus] | None = None,
 ) -> MatchDataset:
     n = len(rows)
     match_id = np.empty(n, dtype=np.int64)
@@ -151,6 +168,10 @@ def _rows_to_dataset(
     home_goals = np.full(n, np.nan, dtype=np.float64)
     away_goals = np.full(n, np.nan, dtype=np.float64)
     is_played = np.zeros(n, dtype=bool)
+    is_promoted_home = np.zeros(n, dtype=bool)
+    is_promoted_away = np.zeros(n, dtype=bool)
+    is_relegated_home = np.zeros(n, dtype=bool)
+    is_relegated_away = np.zeros(n, dtype=bool)
 
     for i, r in enumerate(rows):
         match_id[i] = r["match_id"]
@@ -164,6 +185,14 @@ def _rows_to_dataset(
         if played:
             home_goals[i] = r["home_goals"]
             away_goals[i] = r["away_goals"]
+
+        if promotion_status is not None:
+            home_status = lookup_promotion(promotion_status, r["home_team_id"], r["season_id"])
+            away_status = lookup_promotion(promotion_status, r["away_team_id"], r["season_id"])
+            is_promoted_home[i] = home_status.is_promoted
+            is_promoted_away[i] = away_status.is_promoted
+            is_relegated_home[i] = home_status.is_relegated
+            is_relegated_away[i] = away_status.is_relegated
 
     home_idx = np.array(team_index.to_idx(home_team_id.tolist()), dtype=np.int64)
     away_idx = np.array(team_index.to_idx(away_team_id.tolist()), dtype=np.int64)
@@ -191,6 +220,10 @@ def _rows_to_dataset(
         decay_weight=weight,
         team_index=team_index,
         division_index=division_index,
+        is_promoted_home=is_promoted_home if promotion_status is not None else None,
+        is_promoted_away=is_promoted_away if promotion_status is not None else None,
+        is_relegated_home=is_relegated_home if promotion_status is not None else None,
+        is_relegated_away=is_relegated_away if promotion_status is not None else None,
     )
 
 
@@ -202,6 +235,8 @@ def load_training_matches(
         min_date: DateLike | None = None,
         team_index: IndexMap | None = None,
         division_index: IndexMap | None = None,
+        promotion_status: dict[tuple[int, int], "PromotionStatus"] | None = None,
+        include_promotion_covariate: bool = True,
 ) -> MatchDataset:
     """Played matches strictly before as_of_date, decay-weighted
     relative to as_of_date. This is what the weekly MCMC refit fits on.
@@ -218,6 +253,14 @@ def load_training_matches(
     of the dimension tables happening to agree (they will, unless the
     `teams`/`competitions` tables change between calls — but pass them
     explicitly for a backtest loop where that matters).
+
+    promotion_status: same reuse pattern as team_index/division_index —
+    pass the same dict (from features.promotion.build_promotion_status)
+    used elsewhere in a run. Built automatically if not supplied and
+    include_promotion_covariate is True. Set include_promotion_covariate
+    =False to skip it entirely (dataset.is_promoted_home etc. stay None)
+    — useful for an ablation-test "baseline" run that must not see this
+    covariate at all.
     """
     as_of = _to_date(as_of_date)
     where = ["status = 'played'", "home_goals IS NOT NULL", "away_goals IS NOT NULL",
@@ -231,9 +274,14 @@ def load_training_matches(
 
     team_index = team_index or build_team_index(conn)
     division_index = division_index or build_division_index(conn)
+    if include_promotion_covariate and promotion_status is None:
+        promotion_status = build_promotion_status(conn)
+    elif not include_promotion_covariate:
+        promotion_status = None
 
     return _rows_to_dataset(
-        rows, team_index, division_index, weight_as_of=as_of, half_life_days=half_life_days
+        rows, team_index, division_index, weight_as_of=as_of, half_life_days=half_life_days,
+        promotion_status=promotion_status
     )
 
 
@@ -245,6 +293,8 @@ def load_fixtures(
         competitions: list[int] | None = None,
         team_index: IndexMap | None = None,
         division_index: IndexMap | None = None,
+        promotion_status: dict[tuple[int, int], "PromotionStatus"] | None = None,
+        include_promotion_covariate: bool = True,
 ) -> MatchDataset:
     """Matches in [start_date, end_date). No decay weights (nothing to
     weight — these are being predicted, not fit on).
@@ -266,6 +316,11 @@ def load_fixtures(
     returned by) load_training_matches() for this run, so a team's
     array position here matches the position its fitted parameter
     lives at. Left as None only for standalone/inspection use.
+
+    promotion_status/include_promotion_covariate: same as
+    load_training_matches — pass the same promotion_status dict used
+    for the training call in this run so the fixture window's flags are
+    consistent with whatever the model was fit on.
     """
     start = _to_date(start_date)
     if end_date is not None and horizon_days is not None:
@@ -284,7 +339,11 @@ def load_fixtures(
 
     team_index = team_index or build_team_index(conn)
     division_index = division_index or build_division_index(conn)
+    if include_promotion_covariate and promotion_status is None:
+        promotion_status = build_promotion_status(conn)
+    elif not include_promotion_covariate:
+        promotion_status = None
 
     return _rows_to_dataset(
-        rows, team_index, division_index, weight_as_of=None, half_life_days=None
+        rows, team_index, division_index, weight_as_of=None, half_life_days=None, promotion_status=promotion_status
     )
