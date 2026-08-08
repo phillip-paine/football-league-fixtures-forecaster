@@ -27,12 +27,20 @@ from datetime import date
 import pandas as pd
 
 from features import connect, build_team_index, build_division_index, load_training_matches, load_fixtures
+from features.promotion import build_promotion_status
 from model import fit as model_fit, posterior_rates, match_outcome_probs
 from backtest import BacktestConfig, run_walk_forward_backtest, load_experiment, monthly_summary, season_summary
 
 
 def cmd_run(args):
     conn = connect(args.db)
+
+    promotion_status = build_promotion_status(conn)
+    loader_kwargs = {
+        "promotion_status": promotion_status,
+        "include_promotion_covariate": args.include_promotion_covariate,
+    }
+
     config = BacktestConfig(
         experiment=args.experiment,
         method=args.method,
@@ -43,6 +51,7 @@ def cmd_run(args):
         chains=args.chains,
         target_accept=args.target_accept,
         random_seed=args.seed,
+        loader_kwargs=loader_kwargs,
     )
     results = run_walk_forward_backtest(
         conn,
@@ -105,6 +114,11 @@ def main():
     p_run.add_argument("--target-accept", type=float, default=0.9)
     p_run.add_argument("--seed", type=int, default=None)
     p_run.add_argument("--out-dir", default="data/backtest")
+    p_run.add_argument(
+        "--include-promotion-covariate",
+        action="store_true",
+        help="Fit with the promoted/relegated attack-defense shift terms (default off — the ablation baseline).",
+    )
     p_run.set_defaults(func=cmd_run)
 
     p_report = sub.add_parser("report", help="Aggregate and compare one or more experiments.")

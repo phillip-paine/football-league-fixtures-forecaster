@@ -12,7 +12,7 @@ CLI that wires in the real `features`/`model` packages.
 """
 
 import os
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from datetime import date
 from typing import Callable, List, Optional
 
@@ -57,6 +57,13 @@ class BacktestConfig:
     max_goals: int = 10
     model_config: Optional[object] = None  # model.ModelConfig override, for ablation variants
     random_seed: Optional[int] = None
+    loader_kwargs: dict = field(default_factory=dict)
+    # loader_kwargs: (e.g. the
+    # promotion/relegation flag's `include_promotion_covariate` +
+    # `promotion_status`). The harness deliberately doesn't know what's
+    # in here; that's what keeps it covariate-agnostic. A covariate that
+    # instead changes the model's structure (not just data presence)
+    # goes through `fit_fn` instead, which is already dependency-injected.
 
 
 def _filter_played(dataset):
@@ -134,6 +141,7 @@ def run_walk_forward_backtest(
             half_life_days=config.half_life_days,
             team_index=team_index,
             division_index=division_index,
+            **config.loader_kwargs,
         )
         if train.n_matches == 0:
             print(f"[{as_of}] no training matches yet, skipping")
@@ -151,6 +159,7 @@ def run_walk_forward_backtest(
             end_date=window_end,
             team_index=team_index,
             division_index=division_index,
+            **config.loader_kwargs,
         )
         fixtures_played = _filter_played(fixtures)
         if fixtures_played.n_matches == 0:
