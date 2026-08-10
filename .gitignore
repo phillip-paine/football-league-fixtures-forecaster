@@ -3,5 +3,11 @@ __pycache__/
 .venv/
 dist/
 .idea/
-data/
-site/data
+data/raw/
+data/model/
+data/predictions/
+data/backtest/
+data/*.db-shm
+data/*.db-wal
+site/data/*
+!site/data/**/.gitkeep
