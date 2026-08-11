@@ -14,6 +14,10 @@ jobs:
           miniforge-version: latest
           use-mamba: true
 
+      - name: install poetry
+        shell: bash -el {0}
+        run: pip install poetry
+
       - name: install poetry deps into the conda env
         shell: bash -el {0}
         run: |
