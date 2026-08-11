@@ -22,7 +22,7 @@ jobs:
         shell: bash -el {0}
         run: |
           poetry config virtualenvs.create false --local
-          poetry install
+          poetry install --no-root
 
       - name: ingest latest results/fixtures
         shell: bash -el {0}
