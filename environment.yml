@@ -1,0 +1,9 @@
+name: forecast
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pymc
+  - numpy<2.5
+  - h5netcdf
+  - pip

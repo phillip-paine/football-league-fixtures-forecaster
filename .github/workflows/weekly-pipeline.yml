@@ -1,0 +1,57 @@
+name: weekly-pipeline
+on:
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          miniforge-version: latest
+          use-mamba: true
+
+      - name: install poetry deps into the conda env
+        shell: bash -el {0}
+        run: |
+          poetry config virtualenvs.create false --local
+          poetry install
+
+      - name: ingest latest results/fixtures
+        shell: bash -el {0}
+        run: python ingest_football_data.py --db data/forecast.db
+
+      - name: data-quality gate
+        shell: bash -el {0}
+        run: python build_model_dataset.py --db data/forecast.db validate
+
+      - name: refit model
+        shell: bash -el {0}
+        run: |
+          AS_OF=$(date +%F)
+          echo "AS_OF=$AS_OF" >> "$GITHUB_ENV"
+          python run_dixon_coles.py fit --db data/forecast.db \
+            --as-of "$AS_OF" --half-life 180 \
+            --draws 1000 --tune 1000 --chains 4 \
+            --out "data/model/dc_posterior_${AS_OF}.nc"
+
+      - name: predict upcoming fixtures
+        shell: bash -el {0}
+        run: |
+          python run_dixon_coles.py predict --db data/forecast.db \
+            --idata "data/model/dc_posterior_${AS_OF}.nc" \
+            --start-date "$AS_OF" --horizon-days 14 \
+            --out "data/predictions/${AS_OF}.csv"
+
+      - name: sanity check predictions
+        shell: bash -el {0}
+        run: |
+          python scripts/sanity_check_predictions.py \
+            "data/predictions/${AS_OF}.csv" \
+            --expect-start-date "$AS_OF"
+
+      - name: show what changed (debugging aid, remove later)
+        run: git status
