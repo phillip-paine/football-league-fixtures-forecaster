@@ -32,6 +32,9 @@ jobs:
         shell: bash -el {0}
         run: python build_model_dataset.py --db data/forecast.db validate
 
+      - name: ensure output directories exist
+        run: mkdir -p data/model data/predictions
+
       - name: refit model
         shell: bash -el {0}
         run: |
