@@ -1,0 +1,64 @@
+name: weekly-pipeline-test
+on:
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          miniforge-version: latest
+          use-mamba: true
+
+      - name: install poetry
+        shell: bash -el {0}
+        run: pip install poetry
+
+      - name: install poetry deps into the conda env
+        shell: bash -el {0}
+        run: |
+          poetry config virtualenvs.create false --local
+          poetry install --no-root
+
+      - name: ingest latest results/fixtures
+        shell: bash -el {0}
+        run: python ingest_football_data.py --db data/forecast.db --from-year 2021 --to-year 2025 --leagues E0 E1 E2
+
+      - name: data-quality gate
+        shell: bash -el {0}
+        run: python build_model_dataset.py --db data/forecast.db validate
+
+      - name: ensure output directories exist
+        run: mkdir -p data/model data/predictions
+
+      - name: refit model
+        shell: bash -el {0}
+        run: |
+          AS_OF="2025-01-01"   # <- adjust once we confirm season 5's real range
+          echo "AS_OF=$AS_OF" >> "$GITHUB_ENV"
+          python run_dixon_coles.py fit --db data/forecast.db \
+            --as-of "$AS_OF" --half-life 180 \
+            --draws 1500 --tune 1500 --chains 4 \
+            --out "data/model/dc_posterior_${AS_OF}.nc"
+
+      - name: predict rest of last season
+        shell: bash -el {0}
+        run: |
+          python run_dixon_coles.py predict --db data/forecast.db \
+            --idata "data/model/dc_posterior_${AS_OF}.nc" \
+            --start-date "$AS_OF" --end-date "2025-06-01" \
+            --out "data/predictions/season_prediction_as_of_${AS_OF}.csv"
+
+      - name: sanity check predictions
+        shell: bash -el {0}
+        run: |
+          python scripts/sanity_check_predictions.py \
+            "data/predictions/season_prediction_as_of_${AS_OF}.csv" \
+            --expect-start-date "$AS_OF" --expect-end-date "2025-06-01"
+
+      - name: show what changed (debugging aid, remove later)
+        run: git status
