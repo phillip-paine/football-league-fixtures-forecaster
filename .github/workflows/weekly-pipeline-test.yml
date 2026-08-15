@@ -60,5 +60,9 @@ jobs:
             "data/predictions/season_prediction_as_of_${AS_OF}.csv" \
             --expect-start-date "$AS_OF" --expect-end-date "2025-06-01"
 
+      - name: convert predictions to frontend JSON
+        shell: bash -el {0}
+        run: python site/convert_prediction_files.py "data/predictions/season_prediction_as_of_${AS_OF}.csv" --out-dir site/data
+
       - name: show what changed (debugging aid, remove later)
         run: git status
