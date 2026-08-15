@@ -9,5 +9,5 @@ data/predictions/
 data/backtest/
 data/*.db-shm
 data/*.db-wal
-site/data/*
-!site/data/**/.gitkeep
+docs/data/*
+!docs/data/**/.gitkeep

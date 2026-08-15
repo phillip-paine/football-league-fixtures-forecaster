@@ -62,7 +62,7 @@ jobs:
 
       - name: convert predictions to frontend JSON
         shell: bash -el {0}
-        run: python site/convert_prediction_files.py "data/predictions/season_prediction_as_of_${AS_OF}.csv" --out-dir site/data
+        run: python docs/convert_prediction_files.py "data/predictions/season_prediction_as_of_${AS_OF}.csv" --out-dir docs/data
 
       - name: show what changed (debugging aid, remove later)
         run: git status
@@ -71,6 +71,6 @@ jobs:
         run: |
           git config user.name "forecast-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add site/data/ data/forecast.db
+          git add docs/data/ data/forecast.db
           git diff --cached --quiet || git commit -m "Test run: predictions as of ${AS_OF}"
           git push
