@@ -100,7 +100,7 @@ def apply_as_of_cutoff(df_div: pd.DataFrame, cutoff_date: pd.Timestamp) -> pd.Da
     """
     out = df_div.copy()
     match_dates = pd.to_datetime(out.match_date)
-    after_cutoff = match_dates > cutoff_date
+    after_cutoff = match_dates >= cutoff_date
     out.loc[after_cutoff, "is_played"] = False
     out.loc[after_cutoff, "home_goals"] = np.nan
     out.loc[after_cutoff, "away_goals"] = np.nan

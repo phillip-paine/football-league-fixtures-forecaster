@@ -2,14 +2,24 @@
   "competition": "Premier League",
   "fixtures": [
     {
+      "match_id": 569,
+      "match_date": "2025-01-01",
+      "home_team": "Brentford",
+      "away_team": "Arsenal",
+      "is_played": false,
+      "home_win_prob": 0.3315909004308562,
+      "draw_prob": 0.2448430231544058,
+      "away_win_prob": 0.4235660764147378
+    },
+    {
       "match_id": 570,
       "match_date": "2025-01-04",
       "home_team": "Tottenham",
       "away_team": "Newcastle",
       "is_played": false,
-      "home_win_prob": 0.425486102637253,
-      "draw_prob": 0.2300505232121465,
-      "away_win_prob": 0.3444633741506004
+      "home_win_prob": 0.4298064875690461,
+      "draw_prob": 0.2295785375013681,
+      "away_win_prob": 0.3406149749295857
     },
     {
       "match_id": 571,
@@ -17,9 +27,9 @@
       "home_team": "Aston Villa",
       "away_team": "Leicester",
       "is_played": false,
-      "home_win_prob": 0.421388712098278,
-      "draw_prob": 0.2376753141159191,
-      "away_win_prob": 0.3409359737858029
+      "home_win_prob": 0.4207274020547998,
+      "draw_prob": 0.2396652122730209,
+      "away_win_prob": 0.3396073856721792
     },
     {
       "match_id": 572,
@@ -27,9 +37,9 @@
       "home_team": "Bournemouth",
       "away_team": "Everton",
       "is_played": false,
-      "home_win_prob": 0.4721616087676984,
-      "draw_prob": 0.2606470821696815,
-      "away_win_prob": 0.26719130906262
+      "home_win_prob": 0.4639641211964935,
+      "draw_prob": 0.256806594796784,
+      "away_win_prob": 0.2792292840067221
     },
     {
       "match_id": 573,
@@ -37,9 +47,9 @@
       "home_team": "Crystal Palace",
       "away_team": "Chelsea",
       "is_played": false,
-      "home_win_prob": 0.3677551610579548,
-      "draw_prob": 0.2479453850072606,
-      "away_win_prob": 0.3842994539347846
+      "home_win_prob": 0.3656593040187265,
+      "draw_prob": 0.2474874746629574,
+      "away_win_prob": 0.3868532213183161
     },
     {
       "match_id": 574,
@@ -47,9 +57,9 @@
       "home_team": "Man City",
       "away_team": "West Ham",
       "is_played": false,
-      "home_win_prob": 0.5810160772543611,
-      "draw_prob": 0.2125875480206418,
-      "away_win_prob": 0.206396374724997
+      "home_win_prob": 0.5626847958899195,
+      "draw_prob": 0.2189114589185594,
+      "away_win_prob": 0.218403745191521
     },
     {
       "match_id": 575,
@@ -57,9 +67,9 @@
       "home_team": "Southampton",
       "away_team": "Brentford",
       "is_played": false,
-      "home_win_prob": 0.4211264671305463,
-      "draw_prob": 0.2425562416018628,
-      "away_win_prob": 0.3363172912675909
+      "home_win_prob": 0.4184554870768064,
+      "draw_prob": 0.2447494658310867,
+      "away_win_prob": 0.3367950470921068
     },
     {
       "match_id": 576,
@@ -67,9 +77,9 @@
       "home_team": "Brighton",
       "away_team": "Arsenal",
       "is_played": false,
-      "home_win_prob": 0.3140430524966959,
-      "draw_prob": 0.2457248896093666,
-      "away_win_prob": 0.4402320578939375
+      "home_win_prob": 0.3247369662271308,
+      "draw_prob": 0.2475106320139388,
+      "away_win_prob": 0.4277524017589305
     },
     {
       "match_id": 577,
@@ -77,9 +87,9 @@
       "home_team": "Fulham",
       "away_team": "Ipswich",
       "is_played": false,
-      "home_win_prob": 0.3988086271413947,
-      "draw_prob": 0.2474989227429808,
-      "away_win_prob": 0.3536924501156244
+      "home_win_prob": 0.4026594406100791,
+      "draw_prob": 0.2515267452886865,
+      "away_win_prob": 0.3458138141012344
     },
     {
       "match_id": 578,
@@ -87,19 +97,9 @@
       "home_team": "Liverpool",
       "away_team": "Man United",
       "is_played": false,
-      "home_win_prob": 0.5772306299377663,
-      "draw_prob": 0.2150317543685842,
-      "away_win_prob": 0.2077376156936494
-    },
-    {
-      "match_id": 579,
-      "match_date": "2025-01-06",
-      "home_team": "Wolves",
-      "away_team": "Nott'm Forest",
-      "is_played": false,
-      "home_win_prob": 0.38803237147294,
-      "draw_prob": 0.2504214887428756,
-      "away_win_prob": 0.3615461397841844
+      "home_win_prob": 0.5677614188858029,
+      "draw_prob": 0.2200636193060567,
+      "away_win_prob": 0.2121749618081403
     }
   ]
 }

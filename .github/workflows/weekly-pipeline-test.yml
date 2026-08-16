@@ -50,7 +50,7 @@ jobs:
         run: |
           python run_dixon_coles.py predict --db data/forecast.db \
             --idata "data/model/dc_posterior_${AS_OF}.nc" \
-            --start-date "$AS_OF" --end-date "2025-06-01" \
+            --start-date "2024-08-01" --end-date "2025-06-01" \
             --out "data/predictions/season_prediction_as_of_${AS_OF}.csv"
 
       - name: sanity check predictions
@@ -58,7 +58,7 @@ jobs:
         run: |
           python scripts/sanity_check_predictions.py \
             "data/predictions/season_prediction_as_of_${AS_OF}.csv" \
-            --expect-start-date "$AS_OF" --expect-end-date "2025-06-01"
+            --expect-start-date "2024-08-01" --expect-end-date "2025-06-01"
 
       - name: convert predictions to frontend JSON
         shell: bash -el {0}
