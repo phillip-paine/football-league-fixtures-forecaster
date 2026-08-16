@@ -1,0 +1,4185 @@
+{
+  "competition": "Premier League",
+  "fixtures": [
+    {
+      "match_id": 381,
+      "match_date": "2024-08-16",
+      "home_team": "Man United",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 382,
+      "match_date": "2024-08-17",
+      "home_team": "Ipswich",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 383,
+      "match_date": "2024-08-17",
+      "home_team": "Arsenal",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 384,
+      "match_date": "2024-08-17",
+      "home_team": "Everton",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 385,
+      "match_date": "2024-08-17",
+      "home_team": "Newcastle",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 386,
+      "match_date": "2024-08-17",
+      "home_team": "Nott'm Forest",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 387,
+      "match_date": "2024-08-17",
+      "home_team": "West Ham",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 388,
+      "match_date": "2024-08-18",
+      "home_team": "Brentford",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 389,
+      "match_date": "2024-08-18",
+      "home_team": "Chelsea",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 390,
+      "match_date": "2024-08-19",
+      "home_team": "Leicester",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 391,
+      "match_date": "2024-08-24",
+      "home_team": "Brighton",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 392,
+      "match_date": "2024-08-24",
+      "home_team": "Crystal Palace",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 393,
+      "match_date": "2024-08-24",
+      "home_team": "Fulham",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 394,
+      "match_date": "2024-08-24",
+      "home_team": "Man City",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 395,
+      "match_date": "2024-08-24",
+      "home_team": "Southampton",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 396,
+      "match_date": "2024-08-24",
+      "home_team": "Tottenham",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 397,
+      "match_date": "2024-08-24",
+      "home_team": "Aston Villa",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 398,
+      "match_date": "2024-08-25",
+      "home_team": "Bournemouth",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 399,
+      "match_date": "2024-08-25",
+      "home_team": "Wolves",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 6
+      }
+    },
+    {
+      "match_id": 400,
+      "match_date": "2024-08-25",
+      "home_team": "Liverpool",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 401,
+      "match_date": "2024-08-31",
+      "home_team": "Arsenal",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 402,
+      "match_date": "2024-08-31",
+      "home_team": "Brentford",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 403,
+      "match_date": "2024-08-31",
+      "home_team": "Everton",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 404,
+      "match_date": "2024-08-31",
+      "home_team": "Ipswich",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 405,
+      "match_date": "2024-08-31",
+      "home_team": "Leicester",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 406,
+      "match_date": "2024-08-31",
+      "home_team": "Nott'm Forest",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 407,
+      "match_date": "2024-08-31",
+      "home_team": "West Ham",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 408,
+      "match_date": "2024-09-01",
+      "home_team": "Chelsea",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 409,
+      "match_date": "2024-09-01",
+      "home_team": "Newcastle",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 410,
+      "match_date": "2024-09-01",
+      "home_team": "Man United",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 411,
+      "match_date": "2024-09-14",
+      "home_team": "Southampton",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 412,
+      "match_date": "2024-09-14",
+      "home_team": "Brighton",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 413,
+      "match_date": "2024-09-14",
+      "home_team": "Crystal Palace",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 414,
+      "match_date": "2024-09-14",
+      "home_team": "Fulham",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 415,
+      "match_date": "2024-09-14",
+      "home_team": "Liverpool",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 416,
+      "match_date": "2024-09-14",
+      "home_team": "Man City",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 417,
+      "match_date": "2024-09-14",
+      "home_team": "Aston Villa",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 418,
+      "match_date": "2024-09-14",
+      "home_team": "Bournemouth",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 419,
+      "match_date": "2024-09-15",
+      "home_team": "Tottenham",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 420,
+      "match_date": "2024-09-15",
+      "home_team": "Wolves",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 421,
+      "match_date": "2024-09-21",
+      "home_team": "West Ham",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 422,
+      "match_date": "2024-09-21",
+      "home_team": "Aston Villa",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 423,
+      "match_date": "2024-09-21",
+      "home_team": "Fulham",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 424,
+      "match_date": "2024-09-21",
+      "home_team": "Leicester",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 425,
+      "match_date": "2024-09-21",
+      "home_team": "Liverpool",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 426,
+      "match_date": "2024-09-21",
+      "home_team": "Southampton",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 427,
+      "match_date": "2024-09-21",
+      "home_team": "Tottenham",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 428,
+      "match_date": "2024-09-21",
+      "home_team": "Crystal Palace",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 429,
+      "match_date": "2024-09-22",
+      "home_team": "Brighton",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 430,
+      "match_date": "2024-09-22",
+      "home_team": "Man City",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 431,
+      "match_date": "2024-09-28",
+      "home_team": "Newcastle",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 432,
+      "match_date": "2024-09-28",
+      "home_team": "Arsenal",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 433,
+      "match_date": "2024-09-28",
+      "home_team": "Brentford",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 434,
+      "match_date": "2024-09-28",
+      "home_team": "Chelsea",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 435,
+      "match_date": "2024-09-28",
+      "home_team": "Everton",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 436,
+      "match_date": "2024-09-28",
+      "home_team": "Nott'm Forest",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 437,
+      "match_date": "2024-09-28",
+      "home_team": "Wolves",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 438,
+      "match_date": "2024-09-29",
+      "home_team": "Ipswich",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 439,
+      "match_date": "2024-09-29",
+      "home_team": "Man United",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 440,
+      "match_date": "2024-09-30",
+      "home_team": "Bournemouth",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 441,
+      "match_date": "2024-10-05",
+      "home_team": "Crystal Palace",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 442,
+      "match_date": "2024-10-05",
+      "home_team": "Arsenal",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 443,
+      "match_date": "2024-10-05",
+      "home_team": "Brentford",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 5,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 444,
+      "match_date": "2024-10-05",
+      "home_team": "Leicester",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 445,
+      "match_date": "2024-10-05",
+      "home_team": "Man City",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 446,
+      "match_date": "2024-10-05",
+      "home_team": "West Ham",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 447,
+      "match_date": "2024-10-05",
+      "home_team": "Everton",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 448,
+      "match_date": "2024-10-06",
+      "home_team": "Aston Villa",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 449,
+      "match_date": "2024-10-06",
+      "home_team": "Chelsea",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 450,
+      "match_date": "2024-10-06",
+      "home_team": "Brighton",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 451,
+      "match_date": "2024-10-19",
+      "home_team": "Tottenham",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 452,
+      "match_date": "2024-10-19",
+      "home_team": "Fulham",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 453,
+      "match_date": "2024-10-19",
+      "home_team": "Ipswich",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 454,
+      "match_date": "2024-10-19",
+      "home_team": "Man United",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 455,
+      "match_date": "2024-10-19",
+      "home_team": "Newcastle",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 456,
+      "match_date": "2024-10-19",
+      "home_team": "Southampton",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 457,
+      "match_date": "2024-10-19",
+      "home_team": "Bournemouth",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 458,
+      "match_date": "2024-10-20",
+      "home_team": "Wolves",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 459,
+      "match_date": "2024-10-20",
+      "home_team": "Liverpool",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 460,
+      "match_date": "2024-10-21",
+      "home_team": "Nott'm Forest",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 461,
+      "match_date": "2024-10-25",
+      "home_team": "Leicester",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 462,
+      "match_date": "2024-10-26",
+      "home_team": "Aston Villa",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 463,
+      "match_date": "2024-10-26",
+      "home_team": "Brentford",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 464,
+      "match_date": "2024-10-26",
+      "home_team": "Brighton",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 465,
+      "match_date": "2024-10-26",
+      "home_team": "Man City",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 466,
+      "match_date": "2024-10-26",
+      "home_team": "Everton",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 467,
+      "match_date": "2024-10-27",
+      "home_team": "Chelsea",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 468,
+      "match_date": "2024-10-27",
+      "home_team": "Crystal Palace",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 469,
+      "match_date": "2024-10-27",
+      "home_team": "West Ham",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 470,
+      "match_date": "2024-10-27",
+      "home_team": "Arsenal",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 471,
+      "match_date": "2024-11-02",
+      "home_team": "Newcastle",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 472,
+      "match_date": "2024-11-02",
+      "home_team": "Bournemouth",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 473,
+      "match_date": "2024-11-02",
+      "home_team": "Ipswich",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 474,
+      "match_date": "2024-11-02",
+      "home_team": "Liverpool",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 475,
+      "match_date": "2024-11-02",
+      "home_team": "Nott'm Forest",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 476,
+      "match_date": "2024-11-02",
+      "home_team": "Southampton",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 477,
+      "match_date": "2024-11-02",
+      "home_team": "Wolves",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 478,
+      "match_date": "2024-11-03",
+      "home_team": "Tottenham",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 479,
+      "match_date": "2024-11-03",
+      "home_team": "Man United",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 480,
+      "match_date": "2024-11-04",
+      "home_team": "Fulham",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 481,
+      "match_date": "2024-11-09",
+      "home_team": "Brentford",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 482,
+      "match_date": "2024-11-09",
+      "home_team": "Crystal Palace",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 483,
+      "match_date": "2024-11-09",
+      "home_team": "West Ham",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 484,
+      "match_date": "2024-11-09",
+      "home_team": "Wolves",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 485,
+      "match_date": "2024-11-09",
+      "home_team": "Brighton",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 486,
+      "match_date": "2024-11-09",
+      "home_team": "Liverpool",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 487,
+      "match_date": "2024-11-10",
+      "home_team": "Man United",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 488,
+      "match_date": "2024-11-10",
+      "home_team": "Nott'm Forest",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 489,
+      "match_date": "2024-11-10",
+      "home_team": "Tottenham",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 490,
+      "match_date": "2024-11-10",
+      "home_team": "Chelsea",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 491,
+      "match_date": "2024-11-23",
+      "home_team": "Leicester",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 492,
+      "match_date": "2024-11-23",
+      "home_team": "Arsenal",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 493,
+      "match_date": "2024-11-23",
+      "home_team": "Aston Villa",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 494,
+      "match_date": "2024-11-23",
+      "home_team": "Bournemouth",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 495,
+      "match_date": "2024-11-23",
+      "home_team": "Everton",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 496,
+      "match_date": "2024-11-23",
+      "home_team": "Fulham",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 497,
+      "match_date": "2024-11-23",
+      "home_team": "Man City",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 498,
+      "match_date": "2024-11-24",
+      "home_team": "Southampton",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 499,
+      "match_date": "2024-11-24",
+      "home_team": "Ipswich",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 500,
+      "match_date": "2024-11-25",
+      "home_team": "Newcastle",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 501,
+      "match_date": "2024-11-29",
+      "home_team": "Brighton",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 502,
+      "match_date": "2024-11-30",
+      "home_team": "Brentford",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 503,
+      "match_date": "2024-11-30",
+      "home_team": "Crystal Palace",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 504,
+      "match_date": "2024-11-30",
+      "home_team": "Nott'm Forest",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 505,
+      "match_date": "2024-11-30",
+      "home_team": "Wolves",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 506,
+      "match_date": "2024-11-30",
+      "home_team": "West Ham",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 5
+      }
+    },
+    {
+      "match_id": 507,
+      "match_date": "2024-12-01",
+      "home_team": "Chelsea",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 508,
+      "match_date": "2024-12-01",
+      "home_team": "Man United",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 509,
+      "match_date": "2024-12-01",
+      "home_team": "Tottenham",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 510,
+      "match_date": "2024-12-01",
+      "home_team": "Liverpool",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 511,
+      "match_date": "2024-12-03",
+      "home_team": "Ipswich",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 512,
+      "match_date": "2024-12-03",
+      "home_team": "Leicester",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 513,
+      "match_date": "2024-12-04",
+      "home_team": "Everton",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 514,
+      "match_date": "2024-12-04",
+      "home_team": "Man City",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 515,
+      "match_date": "2024-12-04",
+      "home_team": "Newcastle",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 516,
+      "match_date": "2024-12-04",
+      "home_team": "Southampton",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 5
+      }
+    },
+    {
+      "match_id": 517,
+      "match_date": "2024-12-04",
+      "home_team": "Arsenal",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 518,
+      "match_date": "2024-12-04",
+      "home_team": "Aston Villa",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 519,
+      "match_date": "2024-12-05",
+      "home_team": "Fulham",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 520,
+      "match_date": "2024-12-05",
+      "home_team": "Bournemouth",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 521,
+      "match_date": "2024-12-07",
+      "home_team": "Aston Villa",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 522,
+      "match_date": "2024-12-07",
+      "home_team": "Brentford",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 523,
+      "match_date": "2024-12-07",
+      "home_team": "Crystal Palace",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 524,
+      "match_date": "2024-12-07",
+      "home_team": "Man United",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 525,
+      "match_date": "2024-12-08",
+      "home_team": "Fulham",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 526,
+      "match_date": "2024-12-08",
+      "home_team": "Ipswich",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 527,
+      "match_date": "2024-12-08",
+      "home_team": "Leicester",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 528,
+      "match_date": "2024-12-08",
+      "home_team": "Tottenham",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 529,
+      "match_date": "2024-12-09",
+      "home_team": "West Ham",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 530,
+      "match_date": "2024-12-14",
+      "home_team": "Arsenal",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 531,
+      "match_date": "2024-12-14",
+      "home_team": "Liverpool",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 532,
+      "match_date": "2024-12-14",
+      "home_team": "Newcastle",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 533,
+      "match_date": "2024-12-14",
+      "home_team": "Wolves",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 534,
+      "match_date": "2024-12-14",
+      "home_team": "Nott'm Forest",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 535,
+      "match_date": "2024-12-15",
+      "home_team": "Brighton",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 536,
+      "match_date": "2024-12-15",
+      "home_team": "Man City",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 537,
+      "match_date": "2024-12-15",
+      "home_team": "Chelsea",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 538,
+      "match_date": "2024-12-15",
+      "home_team": "Southampton",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 5
+      }
+    },
+    {
+      "match_id": 539,
+      "match_date": "2024-12-16",
+      "home_team": "Bournemouth",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 540,
+      "match_date": "2024-12-21",
+      "home_team": "Aston Villa",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 541,
+      "match_date": "2024-12-21",
+      "home_team": "Brentford",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 542,
+      "match_date": "2024-12-21",
+      "home_team": "Ipswich",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 543,
+      "match_date": "2024-12-21",
+      "home_team": "West Ham",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 544,
+      "match_date": "2024-12-21",
+      "home_team": "Crystal Palace",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 5
+      }
+    },
+    {
+      "match_id": 545,
+      "match_date": "2024-12-22",
+      "home_team": "Everton",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 546,
+      "match_date": "2024-12-22",
+      "home_team": "Fulham",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 547,
+      "match_date": "2024-12-22",
+      "home_team": "Leicester",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 548,
+      "match_date": "2024-12-22",
+      "home_team": "Man United",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 549,
+      "match_date": "2024-12-22",
+      "home_team": "Tottenham",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 6
+      }
+    },
+    {
+      "match_id": 550,
+      "match_date": "2024-12-26",
+      "home_team": "Man City",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 551,
+      "match_date": "2024-12-26",
+      "home_team": "Bournemouth",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 552,
+      "match_date": "2024-12-26",
+      "home_team": "Chelsea",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 553,
+      "match_date": "2024-12-26",
+      "home_team": "Newcastle",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 554,
+      "match_date": "2024-12-26",
+      "home_team": "Nott'm Forest",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 555,
+      "match_date": "2024-12-26",
+      "home_team": "Southampton",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 556,
+      "match_date": "2024-12-26",
+      "home_team": "Wolves",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 557,
+      "match_date": "2024-12-26",
+      "home_team": "Liverpool",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 558,
+      "match_date": "2024-12-27",
+      "home_team": "Brighton",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 559,
+      "match_date": "2024-12-27",
+      "home_team": "Arsenal",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 560,
+      "match_date": "2024-12-29",
+      "home_team": "Leicester",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 561,
+      "match_date": "2024-12-29",
+      "home_team": "Crystal Palace",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 562,
+      "match_date": "2024-12-29",
+      "home_team": "Everton",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 563,
+      "match_date": "2024-12-29",
+      "home_team": "Fulham",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 564,
+      "match_date": "2024-12-29",
+      "home_team": "Tottenham",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 565,
+      "match_date": "2024-12-29",
+      "home_team": "West Ham",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 5
+      }
+    },
+    {
+      "match_id": 566,
+      "match_date": "2024-12-30",
+      "home_team": "Aston Villa",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 567,
+      "match_date": "2024-12-30",
+      "home_team": "Ipswich",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 568,
+      "match_date": "2024-12-30",
+      "home_team": "Man United",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 569,
+      "match_date": "2025-01-01",
+      "home_team": "Brentford",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 570,
+      "match_date": "2025-01-04",
+      "home_team": "Tottenham",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 571,
+      "match_date": "2025-01-04",
+      "home_team": "Aston Villa",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 572,
+      "match_date": "2025-01-04",
+      "home_team": "Bournemouth",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 573,
+      "match_date": "2025-01-04",
+      "home_team": "Crystal Palace",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 574,
+      "match_date": "2025-01-04",
+      "home_team": "Man City",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 575,
+      "match_date": "2025-01-04",
+      "home_team": "Southampton",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 5
+      }
+    },
+    {
+      "match_id": 576,
+      "match_date": "2025-01-04",
+      "home_team": "Brighton",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 577,
+      "match_date": "2025-01-05",
+      "home_team": "Fulham",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 578,
+      "match_date": "2025-01-05",
+      "home_team": "Liverpool",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 579,
+      "match_date": "2025-01-06",
+      "home_team": "Wolves",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 580,
+      "match_date": "2025-01-14",
+      "home_team": "Brentford",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 581,
+      "match_date": "2025-01-14",
+      "home_team": "Chelsea",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 582,
+      "match_date": "2025-01-14",
+      "home_team": "West Ham",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 583,
+      "match_date": "2025-01-14",
+      "home_team": "Nott'm Forest",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 584,
+      "match_date": "2025-01-15",
+      "home_team": "Everton",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 585,
+      "match_date": "2025-01-15",
+      "home_team": "Leicester",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 586,
+      "match_date": "2025-01-15",
+      "home_team": "Newcastle",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 587,
+      "match_date": "2025-01-15",
+      "home_team": "Arsenal",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 588,
+      "match_date": "2025-01-16",
+      "home_team": "Ipswich",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 589,
+      "match_date": "2025-01-16",
+      "home_team": "Man United",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 590,
+      "match_date": "2025-01-18",
+      "home_team": "Newcastle",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 591,
+      "match_date": "2025-01-18",
+      "home_team": "Brentford",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 592,
+      "match_date": "2025-01-18",
+      "home_team": "Leicester",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 593,
+      "match_date": "2025-01-18",
+      "home_team": "West Ham",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 594,
+      "match_date": "2025-01-18",
+      "home_team": "Arsenal",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 595,
+      "match_date": "2025-01-19",
+      "home_team": "Everton",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 596,
+      "match_date": "2025-01-19",
+      "home_team": "Man United",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 597,
+      "match_date": "2025-01-19",
+      "home_team": "Nott'm Forest",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 598,
+      "match_date": "2025-01-19",
+      "home_team": "Ipswich",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 6
+      }
+    },
+    {
+      "match_id": 599,
+      "match_date": "2025-01-20",
+      "home_team": "Chelsea",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 600,
+      "match_date": "2025-01-25",
+      "home_team": "Bournemouth",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 5,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 601,
+      "match_date": "2025-01-25",
+      "home_team": "Brighton",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 602,
+      "match_date": "2025-01-25",
+      "home_team": "Liverpool",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 603,
+      "match_date": "2025-01-25",
+      "home_team": "Southampton",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 604,
+      "match_date": "2025-01-25",
+      "home_team": "Wolves",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 605,
+      "match_date": "2025-01-25",
+      "home_team": "Man City",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 606,
+      "match_date": "2025-01-26",
+      "home_team": "Crystal Palace",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 607,
+      "match_date": "2025-01-26",
+      "home_team": "Tottenham",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 608,
+      "match_date": "2025-01-26",
+      "home_team": "Aston Villa",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 609,
+      "match_date": "2025-01-26",
+      "home_team": "Fulham",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 610,
+      "match_date": "2025-02-01",
+      "home_team": "Nott'm Forest",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 7,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 611,
+      "match_date": "2025-02-01",
+      "home_team": "Bournemouth",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 612,
+      "match_date": "2025-02-01",
+      "home_team": "Everton",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 613,
+      "match_date": "2025-02-01",
+      "home_team": "Ipswich",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 614,
+      "match_date": "2025-02-01",
+      "home_team": "Newcastle",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 615,
+      "match_date": "2025-02-01",
+      "home_team": "Wolves",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 616,
+      "match_date": "2025-02-02",
+      "home_team": "Brentford",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 617,
+      "match_date": "2025-02-02",
+      "home_team": "Man United",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 618,
+      "match_date": "2025-02-02",
+      "home_team": "Arsenal",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 5,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 619,
+      "match_date": "2025-02-03",
+      "home_team": "Chelsea",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 620,
+      "match_date": "2025-02-12",
+      "home_team": "Everton",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 621,
+      "match_date": "2025-02-14",
+      "home_team": "Brighton",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 622,
+      "match_date": "2025-02-15",
+      "home_team": "Leicester",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 623,
+      "match_date": "2025-02-15",
+      "home_team": "Aston Villa",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 624,
+      "match_date": "2025-02-15",
+      "home_team": "Fulham",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 625,
+      "match_date": "2025-02-15",
+      "home_team": "Man City",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 626,
+      "match_date": "2025-02-15",
+      "home_team": "Southampton",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 627,
+      "match_date": "2025-02-15",
+      "home_team": "West Ham",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 628,
+      "match_date": "2025-02-15",
+      "home_team": "Crystal Palace",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 629,
+      "match_date": "2025-02-16",
+      "home_team": "Liverpool",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 630,
+      "match_date": "2025-02-16",
+      "home_team": "Tottenham",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 631,
+      "match_date": "2025-02-19",
+      "home_team": "Aston Villa",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 632,
+      "match_date": "2025-02-21",
+      "home_team": "Leicester",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 633,
+      "match_date": "2025-02-22",
+      "home_team": "Everton",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 634,
+      "match_date": "2025-02-22",
+      "home_team": "Arsenal",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 635,
+      "match_date": "2025-02-22",
+      "home_team": "Bournemouth",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 636,
+      "match_date": "2025-02-22",
+      "home_team": "Fulham",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 637,
+      "match_date": "2025-02-22",
+      "home_team": "Ipswich",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 638,
+      "match_date": "2025-02-22",
+      "home_team": "Southampton",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 639,
+      "match_date": "2025-02-22",
+      "home_team": "Aston Villa",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 640,
+      "match_date": "2025-02-23",
+      "home_team": "Newcastle",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 641,
+      "match_date": "2025-02-23",
+      "home_team": "Man City",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 642,
+      "match_date": "2025-02-25",
+      "home_team": "Brighton",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 643,
+      "match_date": "2025-02-25",
+      "home_team": "Crystal Palace",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 644,
+      "match_date": "2025-02-25",
+      "home_team": "Wolves",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 645,
+      "match_date": "2025-02-25",
+      "home_team": "Chelsea",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 646,
+      "match_date": "2025-02-26",
+      "home_team": "Brentford",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 647,
+      "match_date": "2025-02-26",
+      "home_team": "Man United",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 648,
+      "match_date": "2025-02-26",
+      "home_team": "Nott'm Forest",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 649,
+      "match_date": "2025-02-26",
+      "home_team": "Tottenham",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 650,
+      "match_date": "2025-02-26",
+      "home_team": "Liverpool",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 651,
+      "match_date": "2025-02-27",
+      "home_team": "West Ham",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 652,
+      "match_date": "2025-03-08",
+      "home_team": "Nott'm Forest",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 653,
+      "match_date": "2025-03-08",
+      "home_team": "Brighton",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 654,
+      "match_date": "2025-03-08",
+      "home_team": "Crystal Palace",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 655,
+      "match_date": "2025-03-08",
+      "home_team": "Liverpool",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 656,
+      "match_date": "2025-03-08",
+      "home_team": "Brentford",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 657,
+      "match_date": "2025-03-08",
+      "home_team": "Wolves",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 658,
+      "match_date": "2025-03-09",
+      "home_team": "Chelsea",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 659,
+      "match_date": "2025-03-09",
+      "home_team": "Tottenham",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 660,
+      "match_date": "2025-03-09",
+      "home_team": "Man United",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 661,
+      "match_date": "2025-03-10",
+      "home_team": "West Ham",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 662,
+      "match_date": "2025-03-15",
+      "home_team": "Everton",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 663,
+      "match_date": "2025-03-15",
+      "home_team": "Ipswich",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 664,
+      "match_date": "2025-03-15",
+      "home_team": "Man City",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 665,
+      "match_date": "2025-03-15",
+      "home_team": "Southampton",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 666,
+      "match_date": "2025-03-15",
+      "home_team": "Bournemouth",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 667,
+      "match_date": "2025-03-16",
+      "home_team": "Arsenal",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 668,
+      "match_date": "2025-03-16",
+      "home_team": "Fulham",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 669,
+      "match_date": "2025-03-16",
+      "home_team": "Leicester",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 670,
+      "match_date": "2025-04-01",
+      "home_team": "Arsenal",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 671,
+      "match_date": "2025-04-01",
+      "home_team": "Wolves",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 672,
+      "match_date": "2025-04-01",
+      "home_team": "Nott'm Forest",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 673,
+      "match_date": "2025-04-02",
+      "home_team": "Bournemouth",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 674,
+      "match_date": "2025-04-02",
+      "home_team": "Brighton",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 675,
+      "match_date": "2025-04-02",
+      "home_team": "Man City",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 676,
+      "match_date": "2025-04-02",
+      "home_team": "Newcastle",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 677,
+      "match_date": "2025-04-02",
+      "home_team": "Southampton",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 678,
+      "match_date": "2025-04-02",
+      "home_team": "Liverpool",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 679,
+      "match_date": "2025-04-03",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 680,
+      "match_date": "2025-04-05",
+      "home_team": "Everton",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 681,
+      "match_date": "2025-04-05",
+      "home_team": "Crystal Palace",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 682,
+      "match_date": "2025-04-05",
+      "home_team": "Ipswich",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 683,
+      "match_date": "2025-04-05",
+      "home_team": "West Ham",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 684,
+      "match_date": "2025-04-05",
+      "home_team": "Aston Villa",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 685,
+      "match_date": "2025-04-06",
+      "home_team": "Brentford",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 686,
+      "match_date": "2025-04-06",
+      "home_team": "Fulham",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 687,
+      "match_date": "2025-04-06",
+      "home_team": "Tottenham",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 688,
+      "match_date": "2025-04-06",
+      "home_team": "Man United",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 689,
+      "match_date": "2025-04-07",
+      "home_team": "Leicester",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 690,
+      "match_date": "2025-04-12",
+      "home_team": "Man City",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 5,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 691,
+      "match_date": "2025-04-12",
+      "home_team": "Brighton",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 692,
+      "match_date": "2025-04-12",
+      "home_team": "Nott'm Forest",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 693,
+      "match_date": "2025-04-12",
+      "home_team": "Southampton",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 694,
+      "match_date": "2025-04-12",
+      "home_team": "Arsenal",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 695,
+      "match_date": "2025-04-13",
+      "home_team": "Chelsea",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 696,
+      "match_date": "2025-04-13",
+      "home_team": "Liverpool",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 697,
+      "match_date": "2025-04-13",
+      "home_team": "Wolves",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 698,
+      "match_date": "2025-04-13",
+      "home_team": "Newcastle",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 699,
+      "match_date": "2025-04-14",
+      "home_team": "Bournemouth",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 700,
+      "match_date": "2025-04-16",
+      "home_team": "Newcastle",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 5,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 701,
+      "match_date": "2025-04-19",
+      "home_team": "Brentford",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 702,
+      "match_date": "2025-04-19",
+      "home_team": "Crystal Palace",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 703,
+      "match_date": "2025-04-19",
+      "home_team": "Everton",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 704,
+      "match_date": "2025-04-19",
+      "home_team": "West Ham",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 705,
+      "match_date": "2025-04-19",
+      "home_team": "Aston Villa",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 706,
+      "match_date": "2025-04-20",
+      "home_team": "Fulham",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 707,
+      "match_date": "2025-04-20",
+      "home_team": "Ipswich",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 708,
+      "match_date": "2025-04-20",
+      "home_team": "Man United",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 709,
+      "match_date": "2025-04-20",
+      "home_team": "Leicester",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 710,
+      "match_date": "2025-04-21",
+      "home_team": "Tottenham",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 711,
+      "match_date": "2025-04-22",
+      "home_team": "Man City",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 712,
+      "match_date": "2025-04-23",
+      "home_team": "Arsenal",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 713,
+      "match_date": "2025-04-26",
+      "home_team": "Chelsea",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 714,
+      "match_date": "2025-04-26",
+      "home_team": "Brighton",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 715,
+      "match_date": "2025-04-26",
+      "home_team": "Newcastle",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 716,
+      "match_date": "2025-04-26",
+      "home_team": "Southampton",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 717,
+      "match_date": "2025-04-26",
+      "home_team": "Wolves",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 718,
+      "match_date": "2025-04-27",
+      "home_team": "Bournemouth",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 719,
+      "match_date": "2025-04-27",
+      "home_team": "Liverpool",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 5,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 720,
+      "match_date": "2025-05-01",
+      "home_team": "Nott'm Forest",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 721,
+      "match_date": "2025-05-02",
+      "home_team": "Man City",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 722,
+      "match_date": "2025-05-03",
+      "home_team": "Aston Villa",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 723,
+      "match_date": "2025-05-03",
+      "home_team": "Everton",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 724,
+      "match_date": "2025-05-03",
+      "home_team": "Leicester",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 725,
+      "match_date": "2025-05-03",
+      "home_team": "Arsenal",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 726,
+      "match_date": "2025-05-04",
+      "home_team": "Brentford",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 727,
+      "match_date": "2025-05-04",
+      "home_team": "Brighton",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 728,
+      "match_date": "2025-05-04",
+      "home_team": "West Ham",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 729,
+      "match_date": "2025-05-04",
+      "home_team": "Chelsea",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 730,
+      "match_date": "2025-05-05",
+      "home_team": "Crystal Palace",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 731,
+      "match_date": "2025-05-10",
+      "home_team": "Fulham",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 732,
+      "match_date": "2025-05-10",
+      "home_team": "Ipswich",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 733,
+      "match_date": "2025-05-10",
+      "home_team": "Southampton",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 734,
+      "match_date": "2025-05-10",
+      "home_team": "Wolves",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 735,
+      "match_date": "2025-05-10",
+      "home_team": "Bournemouth",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 736,
+      "match_date": "2025-05-11",
+      "home_team": "Newcastle",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 737,
+      "match_date": "2025-05-11",
+      "home_team": "Man United",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 738,
+      "match_date": "2025-05-11",
+      "home_team": "Nott'm Forest",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 739,
+      "match_date": "2025-05-11",
+      "home_team": "Tottenham",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 740,
+      "match_date": "2025-05-11",
+      "home_team": "Liverpool",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 741,
+      "match_date": "2025-05-16",
+      "home_team": "Aston Villa",
+      "away_team": "Tottenham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 742,
+      "match_date": "2025-05-16",
+      "home_team": "Chelsea",
+      "away_team": "Man United",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 743,
+      "match_date": "2025-05-18",
+      "home_team": "Everton",
+      "away_team": "Southampton",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 744,
+      "match_date": "2025-05-18",
+      "home_team": "West Ham",
+      "away_team": "Nott'm Forest",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 745,
+      "match_date": "2025-05-18",
+      "home_team": "Brentford",
+      "away_team": "Fulham",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 746,
+      "match_date": "2025-05-18",
+      "home_team": "Leicester",
+      "away_team": "Ipswich",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 747,
+      "match_date": "2025-05-18",
+      "home_team": "Arsenal",
+      "away_team": "Newcastle",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 748,
+      "match_date": "2025-05-19",
+      "home_team": "Brighton",
+      "away_team": "Liverpool",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 749,
+      "match_date": "2025-05-20",
+      "home_team": "Crystal Palace",
+      "away_team": "Wolves",
+      "is_played": true,
+      "actual_score": {
+        "home": 4,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 750,
+      "match_date": "2025-05-20",
+      "home_team": "Man City",
+      "away_team": "Bournemouth",
+      "is_played": true,
+      "actual_score": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 751,
+      "match_date": "2025-05-25",
+      "home_team": "Bournemouth",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 752,
+      "match_date": "2025-05-25",
+      "home_team": "Fulham",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 753,
+      "match_date": "2025-05-25",
+      "home_team": "Ipswich",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 754,
+      "match_date": "2025-05-25",
+      "home_team": "Liverpool",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 755,
+      "match_date": "2025-05-25",
+      "home_team": "Man United",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 756,
+      "match_date": "2025-05-25",
+      "home_team": "Newcastle",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 757,
+      "match_date": "2025-05-25",
+      "home_team": "Nott'm Forest",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 758,
+      "match_date": "2025-05-25",
+      "home_team": "Southampton",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 759,
+      "match_date": "2025-05-25",
+      "home_team": "Tottenham",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 760,
+      "match_date": "2025-05-25",
+      "home_team": "Wolves",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    }
+  ]
+}

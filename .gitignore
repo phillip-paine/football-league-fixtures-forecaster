@@ -9,5 +9,3 @@ data/predictions/
 data/backtest/
 data/*.db-shm
 data/*.db-wal
-docs/data/*
-!docs/data/**/.gitkeep

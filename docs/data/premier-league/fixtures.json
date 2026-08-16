@@ -1,0 +1,115 @@
+{
+  "competition": "Premier League",
+  "fixtures": [
+    {
+      "match_id": 751,
+      "match_date": "2025-05-25",
+      "home_team": "Bournemouth",
+      "away_team": "Leicester",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 752,
+      "match_date": "2025-05-25",
+      "home_team": "Fulham",
+      "away_team": "Man City",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 753,
+      "match_date": "2025-05-25",
+      "home_team": "Ipswich",
+      "away_team": "West Ham",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "match_id": 754,
+      "match_date": "2025-05-25",
+      "home_team": "Liverpool",
+      "away_team": "Crystal Palace",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 755,
+      "match_date": "2025-05-25",
+      "home_team": "Man United",
+      "away_team": "Aston Villa",
+      "is_played": true,
+      "actual_score": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "match_id": 756,
+      "match_date": "2025-05-25",
+      "home_team": "Newcastle",
+      "away_team": "Everton",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 757,
+      "match_date": "2025-05-25",
+      "home_team": "Nott'm Forest",
+      "away_team": "Chelsea",
+      "is_played": true,
+      "actual_score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "match_id": 758,
+      "match_date": "2025-05-25",
+      "home_team": "Southampton",
+      "away_team": "Arsenal",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    {
+      "match_id": 759,
+      "match_date": "2025-05-25",
+      "home_team": "Tottenham",
+      "away_team": "Brighton",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "match_id": 760,
+      "match_date": "2025-05-25",
+      "home_team": "Wolves",
+      "away_team": "Brentford",
+      "is_played": true,
+      "actual_score": {
+        "home": 1,
+        "away": 1
+      }
+    }
+  ]
+}
