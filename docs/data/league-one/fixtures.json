@@ -1,0 +1,135 @@
+{
+  "competition": "League One",
+  "fixtures": [
+    {
+      "match_id": 5659,
+      "match_date": "2025-01-04",
+      "home_team": "Burton",
+      "away_team": "Northampton",
+      "is_played": false,
+      "home_win_prob": 0.3975613039650636,
+      "draw_prob": 0.2766332703549472,
+      "away_win_prob": 0.3258054256799891
+    },
+    {
+      "match_id": 5660,
+      "match_date": "2025-01-04",
+      "home_team": "Cambridge",
+      "away_team": "Bristol Rvs",
+      "is_played": false,
+      "home_win_prob": 0.4128893112942123,
+      "draw_prob": 0.2775469753368659,
+      "away_win_prob": 0.3095637133689217
+    },
+    {
+      "match_id": 5661,
+      "match_date": "2025-01-04",
+      "home_team": "Barnsley",
+      "away_team": "Crawley Town",
+      "is_played": false,
+      "home_win_prob": 0.4999058765802773,
+      "draw_prob": 0.240317981607548,
+      "away_win_prob": 0.2597761418121747
+    },
+    {
+      "match_id": 5662,
+      "match_date": "2025-01-04",
+      "home_team": "Charlton",
+      "away_team": "Reading",
+      "is_played": false,
+      "home_win_prob": 0.4346429273984529,
+      "draw_prob": 0.2573572209171489,
+      "away_win_prob": 0.3079998516843982
+    },
+    {
+      "match_id": 5663,
+      "match_date": "2025-01-04",
+      "home_team": "Exeter",
+      "away_team": "Bolton",
+      "is_played": false,
+      "home_win_prob": 0.3746282929757715,
+      "draw_prob": 0.2641165842124948,
+      "away_win_prob": 0.3612551228117338
+    },
+    {
+      "match_id": 5664,
+      "match_date": "2025-01-04",
+      "home_team": "Huddersfield",
+      "away_team": "Rotherham",
+      "is_played": false,
+      "home_win_prob": 0.4882404349348768,
+      "draw_prob": 0.258819474177117,
+      "away_win_prob": 0.2529400908880062
+    },
+    {
+      "match_id": 5665,
+      "match_date": "2025-01-04",
+      "home_team": "Leyton Orient",
+      "away_team": "Shrewsbury",
+      "is_played": false,
+      "home_win_prob": 0.5165450076006642,
+      "draw_prob": 0.2571495704052388,
+      "away_win_prob": 0.2263054219940967
+    },
+    {
+      "match_id": 5666,
+      "match_date": "2025-01-04",
+      "home_team": "Lincoln",
+      "away_team": "Stevenage",
+      "is_played": false,
+      "home_win_prob": 0.4337397162822598,
+      "draw_prob": 0.2856832309431666,
+      "away_win_prob": 0.2805770527745735
+    },
+    {
+      "match_id": 5667,
+      "match_date": "2025-01-04",
+      "home_team": "Stockport",
+      "away_team": "Mansfield",
+      "is_played": false,
+      "home_win_prob": 0.4465500784951403,
+      "draw_prob": 0.2668827608952345,
+      "away_win_prob": 0.2865671606096253
+    },
+    {
+      "match_id": 5668,
+      "match_date": "2025-01-04",
+      "home_team": "Wigan",
+      "away_team": "Birmingham",
+      "is_played": false,
+      "home_win_prob": 0.4159989750367652,
+      "draw_prob": 0.2786928800154453,
+      "away_win_prob": 0.3053081449477894
+    },
+    {
+      "match_id": 5669,
+      "match_date": "2025-01-04",
+      "home_team": "Wrexham",
+      "away_team": "Peterboro",
+      "is_played": false,
+      "home_win_prob": 0.4827717854620975,
+      "draw_prob": 0.2423853357990067,
+      "away_win_prob": 0.2748428787388959
+    },
+    {
+      "match_id": 5670,
+      "match_date": "2025-01-04",
+      "home_team": "Wycombe",
+      "away_team": "Blackpool",
+      "is_played": false,
+      "home_win_prob": 0.4962083846555661,
+      "draw_prob": 0.2495147401448723,
+      "away_win_prob": 0.2542768751995616
+    },
+    {
+      "match_id": 5671,
+      "match_date": "2025-01-07",
+      "home_team": "Wycombe",
+      "away_team": "Huddersfield",
+      "is_played": false,
+      "home_win_prob": 0.5164291647459383,
+      "draw_prob": 0.2420134614358913,
+      "away_win_prob": 0.2415573738181704
+    }
+  ]
+}

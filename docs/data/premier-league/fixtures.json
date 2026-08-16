@@ -2,114 +2,104 @@
   "competition": "Premier League",
   "fixtures": [
     {
-      "match_id": 751,
-      "match_date": "2025-05-25",
-      "home_team": "Bournemouth",
-      "away_team": "Leicester",
-      "is_played": true,
-      "actual_score": {
-        "home": 2,
-        "away": 0
-      }
-    },
-    {
-      "match_id": 752,
-      "match_date": "2025-05-25",
-      "home_team": "Fulham",
-      "away_team": "Man City",
-      "is_played": true,
-      "actual_score": {
-        "home": 0,
-        "away": 2
-      }
-    },
-    {
-      "match_id": 753,
-      "match_date": "2025-05-25",
-      "home_team": "Ipswich",
-      "away_team": "West Ham",
-      "is_played": true,
-      "actual_score": {
-        "home": 1,
-        "away": 3
-      }
-    },
-    {
-      "match_id": 754,
-      "match_date": "2025-05-25",
-      "home_team": "Liverpool",
-      "away_team": "Crystal Palace",
-      "is_played": true,
-      "actual_score": {
-        "home": 1,
-        "away": 1
-      }
-    },
-    {
-      "match_id": 755,
-      "match_date": "2025-05-25",
-      "home_team": "Man United",
-      "away_team": "Aston Villa",
-      "is_played": true,
-      "actual_score": {
-        "home": 2,
-        "away": 0
-      }
-    },
-    {
-      "match_id": 756,
-      "match_date": "2025-05-25",
-      "home_team": "Newcastle",
-      "away_team": "Everton",
-      "is_played": true,
-      "actual_score": {
-        "home": 0,
-        "away": 1
-      }
-    },
-    {
-      "match_id": 757,
-      "match_date": "2025-05-25",
-      "home_team": "Nott'm Forest",
-      "away_team": "Chelsea",
-      "is_played": true,
-      "actual_score": {
-        "home": 0,
-        "away": 1
-      }
-    },
-    {
-      "match_id": 758,
-      "match_date": "2025-05-25",
-      "home_team": "Southampton",
-      "away_team": "Arsenal",
-      "is_played": true,
-      "actual_score": {
-        "home": 1,
-        "away": 2
-      }
-    },
-    {
-      "match_id": 759,
-      "match_date": "2025-05-25",
+      "match_id": 570,
+      "match_date": "2025-01-04",
       "home_team": "Tottenham",
-      "away_team": "Brighton",
-      "is_played": true,
-      "actual_score": {
-        "home": 1,
-        "away": 4
-      }
+      "away_team": "Newcastle",
+      "is_played": false,
+      "home_win_prob": 0.425486102637253,
+      "draw_prob": 0.2300505232121465,
+      "away_win_prob": 0.3444633741506004
     },
     {
-      "match_id": 760,
-      "match_date": "2025-05-25",
-      "home_team": "Wolves",
+      "match_id": 571,
+      "match_date": "2025-01-04",
+      "home_team": "Aston Villa",
+      "away_team": "Leicester",
+      "is_played": false,
+      "home_win_prob": 0.421388712098278,
+      "draw_prob": 0.2376753141159191,
+      "away_win_prob": 0.3409359737858029
+    },
+    {
+      "match_id": 572,
+      "match_date": "2025-01-04",
+      "home_team": "Bournemouth",
+      "away_team": "Everton",
+      "is_played": false,
+      "home_win_prob": 0.4721616087676984,
+      "draw_prob": 0.2606470821696815,
+      "away_win_prob": 0.26719130906262
+    },
+    {
+      "match_id": 573,
+      "match_date": "2025-01-04",
+      "home_team": "Crystal Palace",
+      "away_team": "Chelsea",
+      "is_played": false,
+      "home_win_prob": 0.3677551610579548,
+      "draw_prob": 0.2479453850072606,
+      "away_win_prob": 0.3842994539347846
+    },
+    {
+      "match_id": 574,
+      "match_date": "2025-01-04",
+      "home_team": "Man City",
+      "away_team": "West Ham",
+      "is_played": false,
+      "home_win_prob": 0.5810160772543611,
+      "draw_prob": 0.2125875480206418,
+      "away_win_prob": 0.206396374724997
+    },
+    {
+      "match_id": 575,
+      "match_date": "2025-01-04",
+      "home_team": "Southampton",
       "away_team": "Brentford",
-      "is_played": true,
-      "actual_score": {
-        "home": 1,
-        "away": 1
-      }
+      "is_played": false,
+      "home_win_prob": 0.4211264671305463,
+      "draw_prob": 0.2425562416018628,
+      "away_win_prob": 0.3363172912675909
+    },
+    {
+      "match_id": 576,
+      "match_date": "2025-01-04",
+      "home_team": "Brighton",
+      "away_team": "Arsenal",
+      "is_played": false,
+      "home_win_prob": 0.3140430524966959,
+      "draw_prob": 0.2457248896093666,
+      "away_win_prob": 0.4402320578939375
+    },
+    {
+      "match_id": 577,
+      "match_date": "2025-01-05",
+      "home_team": "Fulham",
+      "away_team": "Ipswich",
+      "is_played": false,
+      "home_win_prob": 0.3988086271413947,
+      "draw_prob": 0.2474989227429808,
+      "away_win_prob": 0.3536924501156244
+    },
+    {
+      "match_id": 578,
+      "match_date": "2025-01-05",
+      "home_team": "Liverpool",
+      "away_team": "Man United",
+      "is_played": false,
+      "home_win_prob": 0.5772306299377663,
+      "draw_prob": 0.2150317543685842,
+      "away_win_prob": 0.2077376156936494
+    },
+    {
+      "match_id": 579,
+      "match_date": "2025-01-06",
+      "home_team": "Wolves",
+      "away_team": "Nott'm Forest",
+      "is_played": false,
+      "home_win_prob": 0.38803237147294,
+      "draw_prob": 0.2504214887428756,
+      "away_win_prob": 0.3615461397841844
     }
   ]
 }
