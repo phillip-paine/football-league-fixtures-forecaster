@@ -62,8 +62,7 @@ jobs:
 
       - name: convert predictions to frontend JSON
         shell: bash -el {0}
-        run: python docs/convert_prediction_files.py "data/predictions/season_prediction_as_of_${AS_OF}.csv" \
-            --as-of-date "$AS_OF" --out-dir docs/data
+        run: python docs/convert_prediction_files.py "data/predictions/season_prediction_as_of_${AS_OF}.csv" --as-of-date "$AS_OF" --out-dir docs/data
 
       - name: show what changed (debugging aid, remove later)
         run: git status
