@@ -524,7 +524,7 @@ function pct(x){ return Math.round(x*100) + "%"; }
 function renderTabs(){
   const nav = document.getElementById("comp-tabs");
   nav.innerHTML = "";
-  Object.keys(COMPETITIONS).forEach(name => {
+  Object.keys(DIVISION_CONFIG).filter(name => COMPETITIONS[name]).forEach(name => {
     const btn = document.createElement("button");
     btn.className = "tab" + (name === state.comp ? " active" : "");
     btn.textContent = (COMPETITIONS[name] && COMPETITIONS[name].tab) || name.slice(0,5).toUpperCase();
