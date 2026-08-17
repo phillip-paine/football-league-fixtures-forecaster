@@ -9,3 +9,4 @@ data/predictions/
 data/backtest/
 data/*.db-shm
 data/*.db-wal
+data/*_backup.db
