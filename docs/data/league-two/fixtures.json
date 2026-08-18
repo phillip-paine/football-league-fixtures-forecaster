@@ -1,0 +1,135 @@
+{
+  "competition": "League Two",
+  "fixtures": [
+    {
+      "match_id": 11665,
+      "match_date": "2026-08-15",
+      "home_team": "Newport County",
+      "away_team": "Rochdale",
+      "is_played": false,
+      "home_win_prob": 0.4033028025809391,
+      "draw_prob": 0.2653338271105299,
+      "away_win_prob": 0.3313633703085309
+    },
+    {
+      "match_id": 11666,
+      "match_date": "2026-08-15",
+      "home_team": "Oldham",
+      "away_team": "Port Vale",
+      "is_played": false,
+      "home_win_prob": 0.4489926254089131,
+      "draw_prob": 0.263554693937704,
+      "away_win_prob": 0.2874526806533827
+    },
+    {
+      "match_id": 11667,
+      "match_date": "2026-08-15",
+      "home_team": "Accrington",
+      "away_team": "Colchester",
+      "is_played": false,
+      "home_win_prob": 0.3999259924828227,
+      "draw_prob": 0.2681990115543987,
+      "away_win_prob": 0.3318749959627787
+    },
+    {
+      "match_id": 11668,
+      "match_date": "2026-08-15",
+      "home_team": "Barnet",
+      "away_team": "Salford",
+      "is_played": false,
+      "home_win_prob": 0.4355512636869298,
+      "draw_prob": 0.2570376435496688,
+      "away_win_prob": 0.3074110927634013
+    },
+    {
+      "match_id": 11669,
+      "match_date": "2026-08-15",
+      "home_team": "Cheltenham",
+      "away_team": "Rotherham",
+      "is_played": false,
+      "home_win_prob": 0.4351935695517335,
+      "draw_prob": 0.2662944217099187,
+      "away_win_prob": 0.2985120087383478
+    },
+    {
+      "match_id": 11670,
+      "match_date": "2026-08-15",
+      "home_team": "Chesterfield",
+      "away_team": "Fleetwood Town",
+      "is_played": false,
+      "home_win_prob": 0.4414660557572107,
+      "draw_prob": 0.2588958989224039,
+      "away_win_prob": 0.2996380453203853
+    },
+    {
+      "match_id": 11671,
+      "match_date": "2026-08-15",
+      "home_team": "Crawley Town",
+      "away_team": "Crewe",
+      "is_played": false,
+      "home_win_prob": 0.4041014020926761,
+      "draw_prob": 0.2666348311299277,
+      "away_win_prob": 0.3292637667773964
+    },
+    {
+      "match_id": 11672,
+      "match_date": "2026-08-15",
+      "home_team": "Gillingham",
+      "away_team": "Walsall",
+      "is_played": false,
+      "home_win_prob": 0.4038983667165791,
+      "draw_prob": 0.2665379433820686,
+      "away_win_prob": 0.3295636899013522
+    },
+    {
+      "match_id": 11673,
+      "match_date": "2026-08-15",
+      "home_team": "Grimsby",
+      "away_team": "Exeter",
+      "is_played": false,
+      "home_win_prob": 0.4508576311218086,
+      "draw_prob": 0.2580550246636855,
+      "away_win_prob": 0.2910873442145059
+    },
+    {
+      "match_id": 11674,
+      "match_date": "2026-08-15",
+      "home_team": "Northampton",
+      "away_team": "Swindon",
+      "is_played": false,
+      "home_win_prob": 0.3888482180231462,
+      "draw_prob": 0.2648408085586616,
+      "away_win_prob": 0.3463109734181921
+    },
+    {
+      "match_id": 11675,
+      "match_date": "2026-08-15",
+      "home_team": "Tranmere",
+      "away_team": "Shrewsbury",
+      "is_played": false,
+      "home_win_prob": 0.4254885121086786,
+      "draw_prob": 0.2688441814165409,
+      "away_win_prob": 0.3056673064747804
+    },
+    {
+      "match_id": 11676,
+      "match_date": "2026-08-15",
+      "home_team": "York City",
+      "away_team": "Bristol Rvs",
+      "is_played": false,
+      "home_win_prob": 0.4263164727406393,
+      "draw_prob": 0.2621584037327801,
+      "away_win_prob": 0.3115251235265806
+    },
+    {
+      "match_id": 12218,
+      "match_date": "2026-08-15",
+      "home_team": "York",
+      "away_team": "Bristol Rvs",
+      "is_played": false,
+      "home_win_prob": 0.4258750168746227,
+      "draw_prob": 0.2622377485091016,
+      "away_win_prob": 0.3118872346162756
+    }
+  ]
+}

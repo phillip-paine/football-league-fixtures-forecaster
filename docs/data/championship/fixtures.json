@@ -7,9 +7,9 @@
       "home_team": "Wolves",
       "away_team": "Blackburn",
       "is_played": false,
-      "home_win_prob": 0.4092568203558696,
-      "draw_prob": 0.2730366082333271,
-      "away_win_prob": 0.3177065714108031
+      "home_win_prob": 0.4095469665218016,
+      "draw_prob": 0.2721773424929766,
+      "away_win_prob": 0.3182756909852218
     },
     {
       "match_id": 10562,
@@ -17,9 +17,9 @@
       "home_team": "Bolton",
       "away_team": "Preston",
       "is_played": false,
-      "home_win_prob": 0.4577912659532264,
-      "draw_prob": 0.2529298224314166,
-      "away_win_prob": 0.289278911615357
+      "home_win_prob": 0.4492936224659583,
+      "draw_prob": 0.2567420717074815,
+      "away_win_prob": 0.2939643058265602
     },
     {
       "match_id": 10563,
@@ -27,9 +27,9 @@
       "home_team": "Bristol City",
       "away_team": "Millwall",
       "is_played": false,
-      "home_win_prob": 0.4131196429198517,
-      "draw_prob": 0.2615396239075232,
-      "away_win_prob": 0.325340733172625
+      "home_win_prob": 0.4152064977243522,
+      "draw_prob": 0.2628627968150004,
+      "away_win_prob": 0.3219307054606474
     },
     {
       "match_id": 10564,
@@ -37,9 +37,9 @@
       "home_team": "Charlton",
       "away_team": "Derby",
       "is_played": false,
-      "home_win_prob": 0.4049097387288466,
-      "draw_prob": 0.2595709036824398,
-      "away_win_prob": 0.3355193575887135
+      "home_win_prob": 0.4052249737921098,
+      "draw_prob": 0.2609573387162319,
+      "away_win_prob": 0.3338176874916583
     },
     {
       "match_id": 10565,
@@ -47,9 +47,9 @@
       "home_team": "Middlesbrough",
       "away_team": "Lincoln",
       "is_played": false,
-      "home_win_prob": 0.4072375953517869,
-      "draw_prob": 0.2512713173075014,
-      "away_win_prob": 0.3414910873407115
+      "home_win_prob": 0.4116691764502815,
+      "draw_prob": 0.2534813816949257,
+      "away_win_prob": 0.3348494418547927
     },
     {
       "match_id": 10566,
@@ -57,9 +57,9 @@
       "home_team": "Norwich",
       "away_team": "West Brom",
       "is_played": false,
-      "home_win_prob": 0.4566870931344852,
-      "draw_prob": 0.255701930709075,
-      "away_win_prob": 0.2876109761564397
+      "home_win_prob": 0.442980604603824,
+      "draw_prob": 0.2599532586835626,
+      "away_win_prob": 0.2970661367126134
     },
     {
       "match_id": 10567,
@@ -67,9 +67,9 @@
       "home_team": "Portsmouth",
       "away_team": "QPR",
       "is_played": false,
-      "home_win_prob": 0.4447333210654416,
-      "draw_prob": 0.2551407522138269,
-      "away_win_prob": 0.3001259267207316
+      "home_win_prob": 0.4340249376487367,
+      "draw_prob": 0.2591486370995022,
+      "away_win_prob": 0.306826425251761
     },
     {
       "match_id": 10568,
@@ -77,9 +77,9 @@
       "home_team": "Stoke",
       "away_team": "Swansea",
       "is_played": false,
-      "home_win_prob": 0.4067138267471027,
-      "draw_prob": 0.2665164080038346,
-      "away_win_prob": 0.3267697652490627
+      "home_win_prob": 0.4084336256108288,
+      "draw_prob": 0.2661086926538501,
+      "away_win_prob": 0.3254576817353211
     },
     {
       "match_id": 10569,
@@ -87,9 +87,9 @@
       "home_team": "Sheffield United",
       "away_team": "Birmingham",
       "is_played": false,
-      "home_win_prob": 0.4329185715362881,
-      "draw_prob": 0.2550383031253594,
-      "away_win_prob": 0.3120431253383523
+      "home_win_prob": 0.4303630921624629,
+      "draw_prob": 0.2589041833728895,
+      "away_win_prob": 0.3107327244646475
     },
     {
       "match_id": 10570,
@@ -97,9 +97,9 @@
       "home_team": "Watford",
       "away_team": "Southampton",
       "is_played": false,
-      "home_win_prob": 0.3919612726120671,
-      "draw_prob": 0.2564169732561103,
-      "away_win_prob": 0.3516217541318226
+      "home_win_prob": 0.392982326895872,
+      "draw_prob": 0.2606408688634705,
+      "away_win_prob": 0.3463768042406575
     },
     {
       "match_id": 10571,
@@ -107,9 +107,9 @@
       "home_team": "Burnley",
       "away_team": "West Ham",
       "is_played": false,
-      "home_win_prob": 0.4296039385436231,
-      "draw_prob": 0.2599373434369608,
-      "away_win_prob": 0.3104587180194159
+      "home_win_prob": 0.4251761619481391,
+      "draw_prob": 0.2620517415708832,
+      "away_win_prob": 0.3127720964809777
     },
     {
       "match_id": 10572,
@@ -117,9 +117,9 @@
       "home_team": "Cardiff",
       "away_team": "Wrexham",
       "is_played": false,
-      "home_win_prob": 0.4348163151609897,
-      "draw_prob": 0.2450279501628344,
-      "away_win_prob": 0.3201557346761757
+      "home_win_prob": 0.4326343538114695,
+      "draw_prob": 0.2503190457809205,
+      "away_win_prob": 0.31704660040761
     }
   ]
 }

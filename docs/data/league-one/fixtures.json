@@ -7,9 +7,9 @@
       "home_team": "Notts County",
       "away_team": "Leicester",
       "is_played": false,
-      "home_win_prob": 0.4731275191458189,
-      "draw_prob": 0.2489587476850455,
-      "away_win_prob": 0.2779137331691355
+      "home_win_prob": 0.4630672097247479,
+      "draw_prob": 0.2512082001465694,
+      "away_win_prob": 0.2857245901286827
     },
     {
       "match_id": 11114,
@@ -17,9 +17,9 @@
       "home_team": "Oxford",
       "away_team": "MK Dons",
       "is_played": false,
-      "home_win_prob": 0.4167252014301332,
-      "draw_prob": 0.2604093702375431,
-      "away_win_prob": 0.3228654283323236
+      "home_win_prob": 0.4230679544998925,
+      "draw_prob": 0.2599237990619185,
+      "away_win_prob": 0.317008246438189
     },
     {
       "match_id": 11115,
@@ -27,9 +27,9 @@
       "home_team": "Reading",
       "away_team": "Luton",
       "is_played": false,
-      "home_win_prob": 0.4346668707353726,
-      "draw_prob": 0.2551670512594921,
-      "away_win_prob": 0.3101660780051352
+      "home_win_prob": 0.4306680752581139,
+      "draw_prob": 0.2564178561283226,
+      "away_win_prob": 0.3129140686135635
     },
     {
       "match_id": 11116,
@@ -37,9 +37,9 @@
       "home_team": "Barnsley",
       "away_team": "Bromley",
       "is_played": false,
-      "home_win_prob": 0.423981616573889,
-      "draw_prob": 0.2538271775609329,
-      "away_win_prob": 0.3221912058651782
+      "home_win_prob": 0.4213170901872393,
+      "draw_prob": 0.2545976041531279,
+      "away_win_prob": 0.3240853056596328
     },
     {
       "match_id": 11117,
@@ -47,9 +47,9 @@
       "home_team": "Blackpool",
       "away_team": "Wycombe",
       "is_played": false,
-      "home_win_prob": 0.4132374028794401,
-      "draw_prob": 0.2570367821350968,
-      "away_win_prob": 0.3297258149854631
+      "home_win_prob": 0.4140502064369418,
+      "draw_prob": 0.2585269466333461,
+      "away_win_prob": 0.3274228469297121
     },
     {
       "match_id": 11118,
@@ -57,9 +57,9 @@
       "home_team": "Bradford",
       "away_team": "Peterboro",
       "is_played": false,
-      "home_win_prob": 0.4399886195252859,
-      "draw_prob": 0.2528716056521829,
-      "away_win_prob": 0.3071397748225311
+      "home_win_prob": 0.4368107625381551,
+      "draw_prob": 0.2550869200723174,
+      "away_win_prob": 0.3081023173895276
     },
     {
       "match_id": 11119,
@@ -67,9 +67,9 @@
       "home_team": "Burton",
       "away_team": "Stevenage",
       "is_played": false,
-      "home_win_prob": 0.4137991090880446,
-      "draw_prob": 0.2684557239328053,
-      "away_win_prob": 0.31774516697915
+      "home_win_prob": 0.4184301264586254,
+      "draw_prob": 0.2657005969267778,
+      "away_win_prob": 0.3158692766145968
     },
     {
       "match_id": 11120,
@@ -77,9 +77,9 @@
       "home_team": "Cambridge",
       "away_team": "Wigan",
       "is_played": false,
-      "home_win_prob": 0.4629127042935236,
-      "draw_prob": 0.2597364611049557,
-      "away_win_prob": 0.2773508346015206
+      "home_win_prob": 0.4519208499993418,
+      "draw_prob": 0.2605777634504015,
+      "away_win_prob": 0.2875013865502566
     },
     {
       "match_id": 11121,
@@ -87,9 +87,9 @@
       "home_team": "Huddersfield",
       "away_team": "AFC Wimbledon",
       "is_played": false,
-      "home_win_prob": 0.4398077704879103,
-      "draw_prob": 0.2546157859351358,
-      "away_win_prob": 0.3055764435769539
+      "home_win_prob": 0.4432298059947485,
+      "draw_prob": 0.2558305674920562,
+      "away_win_prob": 0.3009396265131953
     },
     {
       "match_id": 11122,
@@ -97,9 +97,9 @@
       "home_team": "Leyton Orient",
       "away_team": "Sheffield Weds",
       "is_played": false,
-      "home_win_prob": 0.4757026105516888,
-      "draw_prob": 0.2535477144912071,
-      "away_win_prob": 0.270749674957104
+      "home_win_prob": 0.4623254516100719,
+      "draw_prob": 0.256390596794689,
+      "away_win_prob": 0.2812839515952391
     },
     {
       "match_id": 11123,
@@ -107,9 +107,9 @@
       "home_team": "Mansfield",
       "away_team": "Doncaster",
       "is_played": false,
-      "home_win_prob": 0.451219673381021,
-      "draw_prob": 0.2514587354886616,
-      "away_win_prob": 0.2973215911303173
+      "home_win_prob": 0.4461298975405481,
+      "draw_prob": 0.2528362773873953,
+      "away_win_prob": 0.3010338250720565
     },
     {
       "match_id": 11124,
@@ -117,9 +117,19 @@
       "home_team": "Plymouth",
       "away_team": "Stockport",
       "is_played": false,
-      "home_win_prob": 0.4079151673916109,
-      "draw_prob": 0.249951396074963,
-      "away_win_prob": 0.342133436533426
+      "home_win_prob": 0.4219369055231677,
+      "draw_prob": 0.2495796866780525,
+      "away_win_prob": 0.3284834077987796
+    },
+    {
+      "match_id": 12217,
+      "match_date": "2026-08-15",
+      "home_team": "Oxford",
+      "away_team": "Milton Keynes Dons",
+      "is_played": false,
+      "home_win_prob": 0.4040523011594075,
+      "draw_prob": 0.2574281837007086,
+      "away_win_prob": 0.338519515139884
     }
   ]
 }
