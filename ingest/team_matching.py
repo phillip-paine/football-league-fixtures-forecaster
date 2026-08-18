@@ -44,9 +44,13 @@ def resolve_team_interactive(conn: sqlite3.Connection, source: str, raw_name: st
       (a team_aliases row already exists) -- makes re-running the preload
       script idempotent and silent on a second run.
     - Otherwise: exact case-insensitive match against every known
-      canonical_name/alias_name; failing that, up to 3 difflib
-      close-match suggestions with a terminal prompt; failing that,
-      offers to create a brand-new team (correct for a club with no
+      canonical_name/alias_name; failing that, an interactive loop offers
+      difflib close-match suggestions (if any), a manual search (for
+      cases like 'Spurs' -> 'Tottenham Hotspur', where the source's own
+      name -- often a nickname or abbreviation -- doesn't string-match
+      its canonical form closely enough for automatic fuzzy matching to
+      find it, but a human knows the right full name to search for), or
+      confirmed creation of a brand-new team (correct for a club with no
       history in the DB at all, e.g. a side newly promoted from the
       National League into League Two).
     - Always writes a team_aliases row for (source, raw_name) once
@@ -60,33 +64,49 @@ def resolve_team_interactive(conn: sqlite3.Connection, source: str, raw_name: st
         return existing[0]
 
     known = _known_names(conn)
-    match = known.get(raw_name.lower())
+    team_id = known.get(raw_name.lower())
 
-    if match is None:
-        close = difflib.get_close_matches(raw_name.lower(), known.keys(), n=3, cutoff=0.6)
-        if close:
+    candidates: list[str] = []
+    if team_id is None:
+        candidates = difflib.get_close_matches(raw_name.lower(), known.keys(), n=5, cutoff=0.6)
+
+    while team_id is None:
+        if candidates:
             print(f"\n'{raw_name}' -- possible matches:")
-            for i, cand in enumerate(close, 1):
+            for i, cand in enumerate(candidates, 1):
                 print(f"  {i}) {cand}  (team_id={known[cand]})")
-            print(f"  n) none of these -- create '{raw_name}' as a new team")
-            choice = input("choice: ").strip().lower()
-            if choice.isdigit() and 1 <= int(choice) <= len(close):
-                match = close[int(choice) - 1]
         else:
-            print(f"\n'{raw_name}' -- no close match found in the DB.")
-            confirm = input(f"create '{raw_name}' as a new team? [y/N]: ").strip().lower()
-            if confirm != "y":
-                raise ValueError(
-                    f"unresolved team name: {raw_name!r} (from source {source!r}) -- "
-                    "declined to create; re-run once you know what this should map to"
-                )
+            print(f"\n'{raw_name}' -- no match found in the DB.")
+        print("  s) search for a different name (e.g. try the official club name instead of a nickname)")
+        print(f"  n) create '{raw_name}' as a new team")
+        choice = input("choice: ").strip().lower()
 
-    if match is not None:
-        team_id = known[match]
-    else:
-        cur = conn.execute("INSERT INTO teams (canonical_name) VALUES (?)", (raw_name,))
-        team_id = cur.lastrowid
-        print(f"created new team: {raw_name!r} (team_id={team_id})")
+        if choice.isdigit() and candidates and 1 <= int(choice) <= len(candidates):
+            team_id = known[candidates[int(choice) - 1]]
+
+        elif choice == "s":
+            query = input("search term: ").strip().lower()
+            if not query:
+                continue
+            substring_hits = [name for name in known if query in name]
+            fuzzy_hits = difflib.get_close_matches(query, known.keys(), n=5, cutoff=0.5)
+            # substring hits first -- a deliberately typed search term
+            # containing a name outright is a stronger signal than a
+            # fuzzy score, then de-duplicate while preserving order.
+            candidates = list(dict.fromkeys(substring_hits + fuzzy_hits))[:5]
+            if not candidates:
+                print(f"no matches for {query!r} -- try a different search term")
+
+        elif choice == "n":
+            confirm = input(f"confirm: create '{raw_name}' as a new team? [y/N]: ").strip().lower()
+            if confirm == "y":
+                cur = conn.execute("INSERT INTO teams (canonical_name) VALUES (?)", (raw_name,))
+                team_id = cur.lastrowid
+                print(f"created new team: {raw_name!r} (team_id={team_id})")
+            # else: loop again, nothing resolved yet
+
+        else:
+            print(f"'{choice}' isn't a valid choice -- pick a number, 's', or 'n'")
 
     conn.execute(
         "INSERT INTO team_aliases (team_id, source, alias_name) VALUES (?, ?, ?)",

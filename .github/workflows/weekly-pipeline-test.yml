@@ -26,7 +26,7 @@ jobs:
 
       - name: ingest latest results/fixtures
         shell: bash -el {0}
-        run: python ingest_football_data.py --db data/forecast.db --from-year 2021 --to-year 2025 --leagues E0 E1 E2
+        run: python ingest_football_data.py --db data/forecast.db --from-year 2021 --to-year 2026 --leagues E0 E1 E2 E3
 
       - name: data-quality gate
         shell: bash -el {0}
@@ -38,7 +38,7 @@ jobs:
       - name: refit model
         shell: bash -el {0}
         run: |
-          AS_OF="2025-01-01"   # <- adjust once we confirm season 5's real range
+          AS_OF="2026-08-01"   # <- adjust once we confirm season 5's real range
           echo "AS_OF=$AS_OF" >> "$GITHUB_ENV"
           python run_dixon_coles.py fit --db data/forecast.db \
             --as-of "$AS_OF" --half-life 180 \
@@ -50,7 +50,7 @@ jobs:
         run: |
           python run_dixon_coles.py predict --db data/forecast.db \
             --idata "data/model/dc_posterior_${AS_OF}.nc" \
-            --start-date "2024-08-01" --end-date "2025-06-01" \
+            --start-date "2026-08-01" --end-date "2027-06-01" \
             --out "data/predictions/season_prediction_as_of_${AS_OF}.csv"
 
       - name: sanity check predictions
@@ -58,7 +58,7 @@ jobs:
         run: |
           python scripts/sanity_check_predictions.py \
             "data/predictions/season_prediction_as_of_${AS_OF}.csv" \
-            --expect-start-date "2024-08-01" --expect-end-date "2025-06-01"
+            --expect-start-date "2026-08-01" --expect-end-date "2027-06-01"
 
       - name: convert predictions to frontend JSON
         shell: bash -el {0}

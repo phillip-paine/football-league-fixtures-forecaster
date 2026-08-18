@@ -2,104 +2,104 @@
   "competition": "Premier League",
   "fixtures": [
     {
-      "match_id": 569,
-      "match_date": "2025-01-01",
-      "home_team": "Brentford",
-      "away_team": "Arsenal",
+      "match_id": 10181,
+      "match_date": "2026-08-21",
+      "home_team": "Arsenal",
+      "away_team": "Coventry",
       "is_played": false,
-      "home_win_prob": 0.3315909004308562,
-      "draw_prob": 0.2448430231544058,
-      "away_win_prob": 0.4235660764147378
+      "home_win_prob": 0.4508860091085807,
+      "draw_prob": 0.2390990918559379,
+      "away_win_prob": 0.3100148990354814
     },
     {
-      "match_id": 570,
-      "match_date": "2025-01-04",
-      "home_team": "Tottenham",
-      "away_team": "Newcastle",
-      "is_played": false,
-      "home_win_prob": 0.4298064875690461,
-      "draw_prob": 0.2295785375013681,
-      "away_win_prob": 0.3406149749295857
-    },
-    {
-      "match_id": 571,
-      "match_date": "2025-01-04",
-      "home_team": "Aston Villa",
-      "away_team": "Leicester",
-      "is_played": false,
-      "home_win_prob": 0.4207274020547998,
-      "draw_prob": 0.2396652122730209,
-      "away_win_prob": 0.3396073856721792
-    },
-    {
-      "match_id": 572,
-      "match_date": "2025-01-04",
-      "home_team": "Bournemouth",
-      "away_team": "Everton",
-      "is_played": false,
-      "home_win_prob": 0.4639641211964935,
-      "draw_prob": 0.256806594796784,
-      "away_win_prob": 0.2792292840067221
-    },
-    {
-      "match_id": 573,
-      "match_date": "2025-01-04",
-      "home_team": "Crystal Palace",
-      "away_team": "Chelsea",
-      "is_played": false,
-      "home_win_prob": 0.3656593040187265,
-      "draw_prob": 0.2474874746629574,
-      "away_win_prob": 0.3868532213183161
-    },
-    {
-      "match_id": 574,
-      "match_date": "2025-01-04",
-      "home_team": "Man City",
-      "away_team": "West Ham",
-      "is_played": false,
-      "home_win_prob": 0.5626847958899195,
-      "draw_prob": 0.2189114589185594,
-      "away_win_prob": 0.218403745191521
-    },
-    {
-      "match_id": 575,
-      "match_date": "2025-01-04",
-      "home_team": "Southampton",
-      "away_team": "Brentford",
-      "is_played": false,
-      "home_win_prob": 0.4184554870768064,
-      "draw_prob": 0.2447494658310867,
-      "away_win_prob": 0.3367950470921068
-    },
-    {
-      "match_id": 576,
-      "match_date": "2025-01-04",
-      "home_team": "Brighton",
-      "away_team": "Arsenal",
-      "is_played": false,
-      "home_win_prob": 0.3247369662271308,
-      "draw_prob": 0.2475106320139388,
-      "away_win_prob": 0.4277524017589305
-    },
-    {
-      "match_id": 577,
-      "match_date": "2025-01-05",
-      "home_team": "Fulham",
-      "away_team": "Ipswich",
-      "is_played": false,
-      "home_win_prob": 0.4026594406100791,
-      "draw_prob": 0.2515267452886865,
-      "away_win_prob": 0.3458138141012344
-    },
-    {
-      "match_id": 578,
-      "match_date": "2025-01-05",
-      "home_team": "Liverpool",
+      "match_id": 10182,
+      "match_date": "2026-08-22",
+      "home_team": "Hull",
       "away_team": "Man United",
       "is_played": false,
-      "home_win_prob": 0.5677614188858029,
-      "draw_prob": 0.2200636193060567,
-      "away_win_prob": 0.2121749618081403
+      "home_win_prob": 0.4166964337245074,
+      "draw_prob": 0.2482261953010109,
+      "away_win_prob": 0.3350773709744816
+    },
+    {
+      "match_id": 10183,
+      "match_date": "2026-08-22",
+      "home_team": "Everton",
+      "away_team": "Crystal Palace",
+      "is_played": false,
+      "home_win_prob": 0.4400336997769928,
+      "draw_prob": 0.2582485774251516,
+      "away_win_prob": 0.3017177227978554
+    },
+    {
+      "match_id": 10184,
+      "match_date": "2026-08-22",
+      "home_team": "Ipswich",
+      "away_team": "Sunderland",
+      "is_played": false,
+      "home_win_prob": 0.4843807295772057,
+      "draw_prob": 0.2405680817611483,
+      "away_win_prob": 0.2750511886616459
+    },
+    {
+      "match_id": 10185,
+      "match_date": "2026-08-22",
+      "home_team": "Nott'm Forest",
+      "away_team": "Leeds",
+      "is_played": false,
+      "home_win_prob": 0.4243738890050953,
+      "draw_prob": 0.2504858686346381,
+      "away_win_prob": 0.3251402423602665
+    },
+    {
+      "match_id": 10186,
+      "match_date": "2026-08-22",
+      "home_team": "Brentford",
+      "away_team": "Tottenham",
+      "is_played": false,
+      "home_win_prob": 0.4514571993639383,
+      "draw_prob": 0.2477550926458887,
+      "away_win_prob": 0.3007877079901729
+    },
+    {
+      "match_id": 10187,
+      "match_date": "2026-08-23",
+      "home_team": "Brighton",
+      "away_team": "Aston Villa",
+      "is_played": false,
+      "home_win_prob": 0.4295671648592645,
+      "draw_prob": 0.249005289666893,
+      "away_win_prob": 0.3214275454738425
+    },
+    {
+      "match_id": 10188,
+      "match_date": "2026-08-23",
+      "home_team": "Man City",
+      "away_team": "Bournemouth",
+      "is_played": false,
+      "home_win_prob": 0.4945502626083389,
+      "draw_prob": 0.2356224625133038,
+      "away_win_prob": 0.2698272748783574
+    },
+    {
+      "match_id": 10189,
+      "match_date": "2026-08-23",
+      "home_team": "Newcastle",
+      "away_team": "Liverpool",
+      "is_played": false,
+      "home_win_prob": 0.4277709163713022,
+      "draw_prob": 0.2427465458760298,
+      "away_win_prob": 0.3294825377526681
+    },
+    {
+      "match_id": 10190,
+      "match_date": "2026-08-24",
+      "home_team": "Fulham",
+      "away_team": "Chelsea",
+      "is_played": false,
+      "home_win_prob": 0.4190570038662243,
+      "draw_prob": 0.2535527808641208,
+      "away_win_prob": 0.327390215269655
     }
   ]
 }
