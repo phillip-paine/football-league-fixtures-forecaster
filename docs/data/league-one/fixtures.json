@@ -2,134 +2,134 @@
   "competition": "League One",
   "fixtures": [
     {
-      "match_id": 11113,
-      "match_date": "2026-08-15",
-      "home_team": "Notts County",
-      "away_team": "Leicester",
+      "match_id": 7032,
+      "match_date": "2025-11-04",
+      "home_team": "Rotherham",
+      "away_team": "Burton",
       "is_played": false,
-      "home_win_prob": 0.4630672097247479,
-      "draw_prob": 0.2512082001465694,
-      "away_win_prob": 0.2857245901286827
+      "home_win_prob": 0.4352419980356026,
+      "draw_prob": 0.2546036342306829,
+      "away_win_prob": 0.3101543677337143
     },
     {
-      "match_id": 11114,
-      "match_date": "2026-08-15",
-      "home_team": "Oxford",
-      "away_team": "MK Dons",
-      "is_played": false,
-      "home_win_prob": 0.4230679544998925,
-      "draw_prob": 0.2599237990619185,
-      "away_win_prob": 0.317008246438189
-    },
-    {
-      "match_id": 11115,
-      "match_date": "2026-08-15",
+      "match_id": 7033,
+      "match_date": "2025-11-06",
       "home_team": "Reading",
-      "away_team": "Luton",
-      "is_played": false,
-      "home_win_prob": 0.4306680752581139,
-      "draw_prob": 0.2564178561283226,
-      "away_win_prob": 0.3129140686135635
-    },
-    {
-      "match_id": 11116,
-      "match_date": "2026-08-15",
-      "home_team": "Barnsley",
-      "away_team": "Bromley",
-      "is_played": false,
-      "home_win_prob": 0.4213170901872393,
-      "draw_prob": 0.2545976041531279,
-      "away_win_prob": 0.3240853056596328
-    },
-    {
-      "match_id": 11117,
-      "match_date": "2026-08-15",
-      "home_team": "Blackpool",
-      "away_team": "Wycombe",
-      "is_played": false,
-      "home_win_prob": 0.4140502064369418,
-      "draw_prob": 0.2585269466333461,
-      "away_win_prob": 0.3274228469297121
-    },
-    {
-      "match_id": 11118,
-      "match_date": "2026-08-15",
-      "home_team": "Bradford",
-      "away_team": "Peterboro",
-      "is_played": false,
-      "home_win_prob": 0.4368107625381551,
-      "draw_prob": 0.2550869200723174,
-      "away_win_prob": 0.3081023173895276
-    },
-    {
-      "match_id": 11119,
-      "match_date": "2026-08-15",
-      "home_team": "Burton",
       "away_team": "Stevenage",
       "is_played": false,
-      "home_win_prob": 0.4184301264586254,
-      "draw_prob": 0.2657005969267778,
-      "away_win_prob": 0.3158692766145968
+      "home_win_prob": 0.4257634890635189,
+      "draw_prob": 0.2556481046892482,
+      "away_win_prob": 0.3185884062472328
     },
     {
-      "match_id": 11120,
-      "match_date": "2026-08-15",
-      "home_team": "Cambridge",
+      "match_id": 7034,
+      "match_date": "2025-11-08",
+      "home_team": "Northampton",
+      "away_team": "Mansfield",
+      "is_played": false,
+      "home_win_prob": 0.414835444596206,
+      "draw_prob": 0.2549403888721285,
+      "away_win_prob": 0.3302241665316656
+    },
+    {
+      "match_id": 7035,
+      "match_date": "2025-11-08",
+      "home_team": "Wycombe",
+      "away_team": "Leyton Orient",
+      "is_played": false,
+      "home_win_prob": 0.433398244578418,
+      "draw_prob": 0.2514757685271926,
+      "away_win_prob": 0.3151259868943893
+    },
+    {
+      "match_id": 7036,
+      "match_date": "2025-11-08",
+      "home_team": "Blackpool",
+      "away_team": "Cardiff",
+      "is_played": false,
+      "home_win_prob": 0.4374843809188874,
+      "draw_prob": 0.2501906250947638,
+      "away_win_prob": 0.3123249939863486
+    },
+    {
+      "match_id": 7037,
+      "match_date": "2025-11-08",
+      "home_team": "Bolton",
+      "away_team": "Port Vale",
+      "is_played": false,
+      "home_win_prob": 0.4384034612317885,
+      "draw_prob": 0.2529846632567225,
+      "away_win_prob": 0.308611875511489
+    },
+    {
+      "match_id": 7038,
+      "match_date": "2025-11-08",
+      "home_team": "Bradford",
+      "away_team": "Burton",
+      "is_played": false,
+      "home_win_prob": 0.4646164932028842,
+      "draw_prob": 0.2504142667960748,
+      "away_win_prob": 0.2849692400010409
+    },
+    {
+      "match_id": 7039,
+      "match_date": "2025-11-08",
+      "home_team": "Doncaster",
+      "away_team": "Barnsley",
+      "is_played": false,
+      "home_win_prob": 0.4474505645018185,
+      "draw_prob": 0.2462451401005421,
+      "away_win_prob": 0.3063042953976392
+    },
+    {
+      "match_id": 7040,
+      "match_date": "2025-11-08",
+      "home_team": "Exeter",
       "away_team": "Wigan",
       "is_played": false,
-      "home_win_prob": 0.4519208499993418,
-      "draw_prob": 0.2605777634504015,
-      "away_win_prob": 0.2875013865502566
+      "home_win_prob": 0.4244588770044505,
+      "draw_prob": 0.2594131975346544,
+      "away_win_prob": 0.3161279254608949
     },
     {
-      "match_id": 11121,
-      "match_date": "2026-08-15",
+      "match_id": 7041,
+      "match_date": "2025-11-08",
       "home_team": "Huddersfield",
+      "away_team": "Plymouth",
+      "is_played": false,
+      "home_win_prob": 0.450876137619288,
+      "draw_prob": 0.2458969982045073,
+      "away_win_prob": 0.3032268641762047
+    },
+    {
+      "match_id": 7042,
+      "match_date": "2025-11-08",
+      "home_team": "Peterboro",
       "away_team": "AFC Wimbledon",
       "is_played": false,
-      "home_win_prob": 0.4432298059947485,
-      "draw_prob": 0.2558305674920562,
-      "away_win_prob": 0.3009396265131953
+      "home_win_prob": 0.404909036598807,
+      "draw_prob": 0.254367274226421,
+      "away_win_prob": 0.3407236891747719
     },
     {
-      "match_id": 11122,
-      "match_date": "2026-08-15",
-      "home_team": "Leyton Orient",
-      "away_team": "Sheffield Weds",
+      "match_id": 7043,
+      "match_date": "2025-11-08",
+      "home_team": "Rotherham",
+      "away_team": "Lincoln",
       "is_played": false,
-      "home_win_prob": 0.4623254516100719,
-      "draw_prob": 0.256390596794689,
-      "away_win_prob": 0.2812839515952391
+      "home_win_prob": 0.4104161475224157,
+      "draw_prob": 0.2560098136558178,
+      "away_win_prob": 0.3335740388217665
     },
     {
-      "match_id": 11123,
-      "match_date": "2026-08-15",
-      "home_team": "Mansfield",
-      "away_team": "Doncaster",
+      "match_id": 7044,
+      "match_date": "2025-11-08",
+      "home_team": "Stockport",
+      "away_team": "Luton",
       "is_played": false,
-      "home_win_prob": 0.4461298975405481,
-      "draw_prob": 0.2528362773873953,
-      "away_win_prob": 0.3010338250720565
-    },
-    {
-      "match_id": 11124,
-      "match_date": "2026-08-15",
-      "home_team": "Plymouth",
-      "away_team": "Stockport",
-      "is_played": false,
-      "home_win_prob": 0.4219369055231677,
-      "draw_prob": 0.2495796866780525,
-      "away_win_prob": 0.3284834077987796
-    },
-    {
-      "match_id": 12217,
-      "match_date": "2026-08-15",
-      "home_team": "Oxford",
-      "away_team": "Milton Keynes Dons",
-      "is_played": false,
-      "home_win_prob": 0.4040523011594075,
-      "draw_prob": 0.2574281837007086,
-      "away_win_prob": 0.338519515139884
+      "home_win_prob": 0.4842292365146715,
+      "draw_prob": 0.2440846383858201,
+      "away_win_prob": 0.2716861250995083
     }
   ]
 }
