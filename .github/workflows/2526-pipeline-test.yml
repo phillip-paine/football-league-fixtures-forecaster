@@ -1,4 +1,4 @@
-name: weekly-pipeline-test
+name: 2526-pipeline-test
 on:
   workflow_dispatch: {}
 
